@@ -16,6 +16,7 @@
         <img src="assets/img/character.png" alt="character" width="1300px"/> <!-- Needs to be a svg -->
         </div>
 
+
         <!-- Progress bar -->
         <div class="desktop__element" style="--x: 650px; --y: 175px;">
         <img src="assets/img/progress-bar.png" alt="decorative progress bar" width="100px"/>
@@ -23,36 +24,51 @@
 
 
         <!-- ABOUT window -->
-        <div class="window" style="--x: 100px; --y: 100px;" data-window="about"; onmousedown="bringToFront(this)">
+        <div class="window" style="--x: 60px; --y: 60px;" data-window="about"; onmousedown="bringToFront(this)">
         <div class="window__titlebar"; onmousedown="startDrag(event, this.closest('.window'))">
-            <span class="window__title">About</span>
+            <span class="window__title"><h3>About</h3></span>
             <button class="window__close">✕</button>
         </div>
         <div class="window__content">
             <!-- anything here scrolls internally -->
-            <p>Hi! I'm Juliette Zaccour.<br>
-                I'm a PhD candidate at the Oxford Internet Institute, part of the
+            <p>Hi!<br>
+                I'm a PhD candidate at the Oxford Internet Institute, as part of the
                  <a href="https://syntheticsociety.oii.ox.ac.uk/", target="_blank">Synthetic Society Lab</a>.<br>
-                I research the socio-technical implications of synthetic data, and how AI is reshaping how researchers access data.
+                I research the socio-technical implications of synthetic data, and how AI is reshaping how researchers access data.<br>
             </p>
+
+            <!-- Tags -->
+            <!--<p><strong>Research Interests:</strong></p>-->
+            <div class="tags">
+                <span class="tag">Synthetic Data</span>
+                <span class="tag">AI Ethics</span>
+                <span class="tag">Data Governance</span>
+            </div>
         </div>
         </div>
+
 
         <!-- UPDATES window -->
-        <div class="window" style="--x: 950px; --y: 100px;" data-window="updates"; onmousedown="bringToFront(this)">
+        <div class="window" style="--x: 950px; --y: 60px;" data-window="updates"; onmousedown="bringToFront(this)">
         <div class="window__titlebar"; onmousedown="startDrag(event, this.closest('.window'))">
-            <span class="window__title">Updates!</span>
+            <span class="window__title"><h3>Updates!</h3></span>
             <button class="window__close">✕</button>
         </div>
         <div class="window__content">
             <!-- anything here scrolls internally -->
-            <p>
-                - March 2026: I did this cool thing.<br>
-                - May 2025: I went there!<br>
-            </p>
+            <ul class="updates-list">
+                <li><span class="date">[06.2026]</span> <span class="desc">went to the FAccT'2026 Doctoral Consortium (Montreal, Canada)</span></li>
+                <li><span class="date">[07.2025]</span> <span class="desc">started interning as a Research Scientist at the Aioi Lab (Oxford, UK)</span></li>
+                <li><span class="date">[07.2025]</span> <span class="desc">presented Access Denied at the Privacy Research Day (Paris, France)</span></li>
+                <li><span class="date">[05.2025]</span> <span class="desc">presented Access Denied at CHI'2025 (Yokohama, Japan)</span></li>
+                <li><span class="date">[04.2025]</span> <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span></li>
+                <li><span class="date">[XX.2025]</span> <span class="desc">Catz scholarship</span></li>
+                <li><span class="date">[XX.2025]</span> <span class="desc">WOCS scholarship</span></li>
+                <li><span class="date">[XX.2025]</span> <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span></li>
+                <li><span class="date">[XX.2025]</span> <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span></li>
+            </ul>
         </div>
         </div>
-
 
 
         <!-- CV icon -->
@@ -68,9 +84,9 @@
 
 
         <!-- PROJECTS window -->
-        <div class="window" style="--x: 950px; --y: 400px;" data-window="projects"; onmousedown="bringToFront(this)">
+        <div class="window" style="--x: 1050px; --y: 400px;" data-window="projects"; onmousedown="bringToFront(this)">
         <div class="window__titlebar"; onmousedown="startDrag(event, this.closest('.window'))">
-            <span class="window__title">Projects</span>
+            <span class="window__title"><h3>Projects</h3></span>
             <button class="window__close">✕</button>
         </div>
         <div class="window__content">
@@ -81,8 +97,6 @@
             </p>
         </div>
         </div>
-
-
 
 
     </div>

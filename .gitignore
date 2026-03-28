@@ -1,5 +1,7 @@
 .env/
 *.png
+*.ttf
+*.otf
 
 
 

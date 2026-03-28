@@ -6,19 +6,86 @@
     <title>Juliette Zaccour</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+    <body>
 
-    <main>
-      <section class="hero">
-        <h1>Juliette Zaccour</h1>
-        <p>PhD student at the OII.</p>
-      </section>
+    <div class="desktop">
+        <!-- Elements on the "desktop" -->
 
-      <section class="work">
-        <h2>Work</h2>
-        <!-- project cards go here later -->
-      </section>
-    </main>
+        <!-- Character -->
+        <div class="desktop__element" style="--x: 100px; --y: 175px;">
+        <img src="assets/img/character.png" alt="character" width="1300px"/> <!-- Needs to be a svg -->
+        </div>
+
+        <!-- Progress bar -->
+        <div class="desktop__element" style="--x: 650px; --y: 175px;">
+        <img src="assets/img/progress-bar.png" alt="decorative progress bar" width="100px"/>
+        </div>
+
+
+        <!-- ABOUT window -->
+        <div class="window" style="--x: 100px; --y: 100px;" data-window="about"; onmousedown="bringToFront(this)">
+        <div class="window__titlebar"; onmousedown="startDrag(event, this.closest('.window'))">
+            <span class="window__title">About</span>
+            <button class="window__close">✕</button>
+        </div>
+        <div class="window__content">
+            <!-- anything here scrolls internally -->
+            <p>Hi! I'm Juliette Zaccour.<br>
+                I'm a PhD candidate at the Oxford Internet Institute, part of the
+                 <a href="https://syntheticsociety.oii.ox.ac.uk/", target="_blank">Synthetic Society Lab</a>.<br>
+                I research the socio-technical implications of synthetic data, and how AI is reshaping how researchers access data.
+            </p>
+        </div>
+        </div>
+
+        <!-- UPDATES window -->
+        <div class="window" style="--x: 950px; --y: 100px;" data-window="updates"; onmousedown="bringToFront(this)">
+        <div class="window__titlebar"; onmousedown="startDrag(event, this.closest('.window'))">
+            <span class="window__title">Updates!</span>
+            <button class="window__close">✕</button>
+        </div>
+        <div class="window__content">
+            <!-- anything here scrolls internally -->
+            <p>
+                - March 2026: I did this cool thing.<br>
+                - May 2025: I went there!<br>
+            </p>
+        </div>
+        </div>
+
+
+
+        <!-- CV icon -->
+        <div class="desktop__element" style="--x: 100px; --y: 475px;">
+        <img src="assets/img/cv-icon.png" alt="CV icon" width="1300px"/> <!-- Needs to be a svg -->
+        </div>
+
+
+        <!-- Hobby box -->
+        <div class="desktop__element" style="--x: 100px; --y: 775px;">
+        <img src="assets/img/hobby-box.png" alt="Cardboard box icon" width="1300px"/> <!-- Needs to be a svg -->
+        </div>
+
+
+        <!-- PROJECTS window -->
+        <div class="window" style="--x: 950px; --y: 400px;" data-window="projects"; onmousedown="bringToFront(this)">
+        <div class="window__titlebar"; onmousedown="startDrag(event, this.closest('.window'))">
+            <span class="window__title">Projects</span>
+            <button class="window__close">✕</button>
+        </div>
+        <div class="window__content">
+            <!-- anything here scrolls internally -->
+            <p>
+                - Project 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                - Project 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+            </p>
+        </div>
+        </div>
+
+
+
+
+    </div>
 
     <script src="script.js"></script>
   </body>

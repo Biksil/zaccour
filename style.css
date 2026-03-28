@@ -1,0 +1,29 @@
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Tokens ── */
+:root {
+  --color-bg: #f5f5f0;
+  --color-text: #1a1a1a;
+  --color-accent: #ff4d00;   /* swap this to your brand colour */
+  --font-main: 'Inter', sans-serif;
+  --max-width: 1200px;
+}
+
+/* ── Base ── */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}

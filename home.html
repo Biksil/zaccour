@@ -9,9 +9,17 @@
   <body>
     <div class="desktop">
 
+      <!-- Light/dark mode toggle -->
+      <div class="desktop__element" style="--x: 450px; --y: 430px; z-index: 10"> 
+      <button id="theme-toggle" class="theme-toggle">
+        <img src="assets/img/light-bulb-dark-icon.png" alt="light bulb icon (light mode)" width="130px" />
+        <img src="assets/img/light-bulb-light-icon.png" alt="light bulb icon (dark mode)" width="130px" />
+      </button>
+      </div>
+
       <!-- Character -->
-      <div class="desktop__element" style="--x: 350px; --y: 275px">
-        <img src="assets/img/character-animated.gif" alt="character" width="800px" />
+      <div class="desktop__element" style="--x: 470px; --y: 375px; z-index: 1">
+        <img src="assets/img/character-animated.gif" alt="character" width="500px" />
       </div>
 
       <!-- Progress bar -->
@@ -21,7 +29,7 @@
 
       <!-- CV icon -->
       <div class="desktop__element" style="--x: 100px; --y: 475px">
-        <img src="assets/img/cv-icon.png" alt="CV icon" width="1300px" />
+        <img src="assets/img/cv-icon.png" alt="CV icon" width="150px" />
       </div>
 
       <!-- Hobby box -->
@@ -29,14 +37,8 @@
         <img src="assets/img/hobby-box.png" alt="Cardboard box icon" width="1300px" />
       </div>
 
-      <!-- Socials -->
-      <div class="desktop__element" style="--x: 1100px; --y: 775px">
-        <p>to connect: juliette[dot]zaccour[at]oii[dot]ox[dot]ac[dot]uk</p>
-        <img src="assets/img/linkedin-icon.png" alt="LinkedIn icon" width="100px" />
-      </div>
-
       <!-- ABOUT window -->
-      <div class="window-wrapper" style="--x: 90px; --y: 90px">
+      <div class="window-wrapper" style="--x: 60px; --y: 90px">
         <div class="window__brush"></div>
         <div class="window" data-window="about" onmousedown="bringToFront(this.closest('.window-wrapper'))">
           <div class="window__titlebar" onmousedown="startDrag(event, this.closest('.window-wrapper'))">
@@ -60,8 +62,13 @@
         </div>
       </div>
 
+      <!-- Post-it -->
+      <div class="desktop__element" style="--x: 350px; --y: 300px">
+        <img src="assets/img/post-it.png" alt="Post-it note" width="170px" />
+      </div>
+
       <!-- UPDATES window -->
-      <div class="window-wrapper" style="--x: 950px; --y: 60px">
+      <div class="window-wrapper" style="--x: 950px; --y: 40px">
         <div class="window__brush"></div>
         <div class="window" data-window="updates" onmousedown="bringToFront(this.closest('.window-wrapper'))">
           <div class="window__titlebar" onmousedown="startDrag(event, this.closest('.window-wrapper'))">
@@ -128,8 +135,22 @@
         </div>
       </div>
 
+      <!-- Socials -->
+      <div class="desktop__element" style="--x: 965px; --y: 675px">
+        <img src="assets/img/connect.png" alt="let's connect" width="170px" />
+      </div>
+      <div class="desktop__element" style="--x: 1025px; --y: 750px">
+        <img src="assets/img/email.png" alt="" width="370px" />
+      </div>
+      <div class="desktop__element" style="--x: 1025px; --y: 795px">
+        <a href="https://www.linkedin.com/in/juliette-zaccour/" target="_blank"><img src="assets/img/linkedin-icon.png" alt="LinkedIn icon" width="200px" /></a>
+      </div>
+      <div class="desktop__element" style="--x: 1260px; --y: 795px">
+        <a href="https://github.com/Biksil" target="_blank"><img src="assets/img/github-icon.png" alt="GitHub icon" width="200px" /></a>
+      </div>
+
     </div>
 
-    <script src="script.js"></script>
+    <script src="home-desktop.js" defer></script>
   </body>
 </html>

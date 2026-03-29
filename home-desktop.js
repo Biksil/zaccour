@@ -53,3 +53,27 @@ document.addEventListener('touchmove', (e) => {
 }, { passive: false });
 
 document.addEventListener('touchend', () => dragging = null);
+
+
+// Light/dark mode toggle
+let lightmode = localStorage.getItem('lightmode')
+const themeToggle = document.getElementById('theme-toggle');
+
+const enableLightMode = () => {
+  document.body.classList.add('lightmode');
+  localStorage.setItem('lightmode', 'active');
+}
+
+const disableLightMode = () => {
+  document.body.classList.remove('lightmode');
+  localStorage.setItem('lightmode', 'inactive');
+}
+
+if (lightmode === "active") {
+  enableLightMode();
+}
+
+themeToggle.addEventListener('click', () => {
+  lightmode = localStorage.getItem('lightmode');
+  lightmode !== "active" ? enableLightMode() : disableLightMode();
+})

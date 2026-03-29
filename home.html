@@ -8,48 +8,109 @@
   </head>
   <body>
     <div class="desktop">
-
       <!-- Light/dark mode toggle -->
-      <div class="desktop__element" style="--x: 450px; --y: 430px; z-index: 10"> 
-      <button id="theme-toggle" class="theme-toggle">
-        <img src="assets/img/light-bulb-dark-icon.png" alt="light bulb icon (light mode)" width="130px" />
-        <img src="assets/img/light-bulb-light-icon.png" alt="light bulb icon (dark mode)" width="130px" />
-      </button>
+      <div
+        class="desktop__element"
+        style="--x: 450px; --y: 430px; z-index: 10"
+        onmousedown="bringToFront(this.closest('.desktop__element'))"
+      >
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          onmousedown="startDrag(event, this.closest('.desktop__element'))"
+        >
+          <img
+            src="assets/img/light-bulb-dark-icon.png"
+            alt="light bulb icon (light mode)"
+            width="130px"
+          />
+          <p class="text" id="text-dark">Turn it on!</p>
+          <img
+            src="assets/img/light-bulb-light-icon.png"
+            alt="light bulb icon (dark mode)"
+            width="130px"
+          />
+          <p class="text" id="text-light">Turn it off!</p>
+        </button>
       </div>
 
       <!-- Character -->
-      <div class="desktop__element" style="--x: 470px; --y: 375px; z-index: 1; pointer-events: none;">
-        <img src="assets/img/character-animated.gif" alt="character" width="500px" />
+      <div
+        class="desktop__element"
+        style="--x: 470px; --y: 375px; z-index: 1; pointer-events: none"
+        onmousedown="bringToFront(this.closest('.desktop__element'))"
+      >
+        <img
+          src="assets/img/character-animated.gif"
+          alt="character"
+          width="500px"
+        />
       </div>
 
       <!-- Progress bar -->
-      <div class="desktop__element" style="--x: 650px; --y: 175px">
-        <img src="assets/img/progress-bar.png" alt="decorative progress bar" width="100px" />
+      <div
+        class="desktop__element"
+        style="--x: 650px; --y: 175px"
+        onmousedown="bringToFront(this.closest('.desktop__element'))"
+      >
+        <img
+          src="assets/img/progress-bar.png"
+          alt="decorative progress bar"
+          width="100px"
+        />
       </div>
 
       <!-- CV icon -->
-      <div class="desktop__element" style="--x: 100px; --y: 475px">
-        <img src="assets/img/cv-icon.png" alt="CV icon" width="150px" />
+      <div
+        class="desktop__element"
+        style="--x: 100px; --y: 475px"
+        onmousedown="bringToFront(this.closest('.desktop__element'))"
+      >
+        <img
+          src="assets/img/cv-icon.png"
+          alt="CV icon"
+          width="150px"
+          onmousedown="startDrag(event, this.closest('.desktop__element'))"
+        />
       </div>
 
       <!-- Hobby box -->
-      <div class="desktop__element" style="--x: 100px; --y: 775px">
-        <img src="assets/img/hobby-box.png" alt="Cardboard box icon" width="1300px" />
+      <div
+        class="desktop__element"
+        style="--x: 100px; --y: 775px"
+        onmousedown="bringToFront(this.closest('.desktop__element'))"
+      >
+        <img
+          src="assets/img/hobby-box.png"
+          alt="Cardboard box icon"
+          width="1300px"
+          onmousedown="startDrag(event, this.closest('.desktop__element'))"
+        />
       </div>
 
       <!-- ABOUT window -->
       <div class="window-wrapper" style="--x: 60px; --y: 90px">
         <div class="window__brush"></div>
-        <div class="window" data-window="about" onmousedown="bringToFront(this.closest('.window-wrapper'))">
-          <div class="window__titlebar" onmousedown="startDrag(event, this.closest('.window-wrapper'))">
+        <div
+          class="window"
+          data-window="about"
+          onmousedown="bringToFront(this.closest('.window-wrapper'))"
+        >
+          <div
+            class="window__titlebar"
+            onmousedown="startDrag(event, this.closest('.window-wrapper'))"
+          >
             <span class="window__title"><h3>About</h3></span>
             <button class="window__close">✕</button>
           </div>
           <div class="window__content">
             <p>
               Hi!<br />
-              I'm a PhD candidate at the Oxford Internet Institute, as part of the
-              <a href="https://syntheticsociety.oii.ox.ac.uk/" target="_blank">Synthetic Society Lab</a>.<br />
+              I'm a PhD candidate at the Oxford Internet Institute, as part of
+              the
+              <a href="https://syntheticsociety.oii.ox.ac.uk/" target="_blank"
+                >Synthetic Society Lab</a
+              >.<br />
               I research the socio-technical implications of synthetic data, and
               how AI is reshaping how researchers access data.<br />
             </p>
@@ -63,15 +124,31 @@
       </div>
 
       <!-- Post-it -->
-      <div class="desktop__element" style="--x: 350px; --y: 300px">
-        <img src="assets/img/post-it.png" alt="Post-it note" width="170px" />
+      <div
+        class="desktop__element"
+        style="--x: 350px; --y: 300px"
+        onmousedown="bringToFront(this.closest('.desktop__element'))"
+      >
+        <img
+          src="assets/img/post-it.png"
+          alt="Post-it note"
+          width="170px"
+          onmousedown="startDrag(event, this.closest('.desktop__element'))"
+        />
       </div>
 
       <!-- UPDATES window -->
       <div class="window-wrapper" style="--x: 950px; --y: 40px">
         <div class="window__brush"></div>
-        <div class="window" data-window="updates" onmousedown="bringToFront(this.closest('.window-wrapper'))">
-          <div class="window__titlebar" onmousedown="startDrag(event, this.closest('.window-wrapper'))">
+        <div
+          class="window"
+          data-window="updates"
+          onmousedown="bringToFront(this.closest('.window-wrapper'))"
+        >
+          <div
+            class="window__titlebar"
+            onmousedown="startDrag(event, this.closest('.window-wrapper'))"
+          >
             <span class="window__title"><h3>Updates!</h3></span>
             <button class="window__close">✕</button>
           </div>
@@ -79,23 +156,36 @@
             <ul class="updates-list">
               <li>
                 <span class="date">[06.2026]</span>
-                <span class="desc">went to the FAccT'2026 Doctoral Consortium (Montreal, Canada)</span>
+                <span class="desc"
+                  >went to the FAccT'2026 Doctoral Consortium (Montreal,
+                  Canada)</span
+                >
               </li>
               <li>
                 <span class="date">[07.2025]</span>
-                <span class="desc">started interning as a Research Scientist at the Aioi Lab (Oxford, UK)</span>
+                <span class="desc"
+                  >started interning as a Research Scientist at the Aioi Lab
+                  (Oxford, UK)</span
+                >
               </li>
               <li>
                 <span class="date">[07.2025]</span>
-                <span class="desc">presented Access Denied at the Privacy Research Day (Paris, France)</span>
+                <span class="desc"
+                  >presented Access Denied at the Privacy Research Day (Paris,
+                  France)</span
+                >
               </li>
               <li>
                 <span class="date">[05.2025]</span>
-                <span class="desc">presented Access Denied at CHI'2025 (Yokohama, Japan)</span>
+                <span class="desc"
+                  >presented Access Denied at CHI'2025 (Yokohama, Japan)</span
+                >
               </li>
               <li>
                 <span class="date">[04.2025]</span>
-                <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span>
+                <span class="desc"
+                  >obtained Best Paper Honorable Mention at CHI'2025</span
+                >
               </li>
               <li>
                 <span class="date">[XX.2025]</span>
@@ -107,11 +197,15 @@
               </li>
               <li>
                 <span class="date">[XX.2025]</span>
-                <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span>
+                <span class="desc"
+                  >obtained Best Paper Honorable Mention at CHI'2025</span
+                >
               </li>
               <li>
                 <span class="date">[XX.2025]</span>
-                <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span>
+                <span class="desc"
+                  >obtained Best Paper Honorable Mention at CHI'2025</span
+                >
               </li>
             </ul>
           </div>
@@ -121,15 +215,24 @@
       <!-- PROJECTS window -->
       <div class="window-wrapper" style="--x: 1040px; --y: 250px">
         <div class="window__brush"></div>
-        <div class="window" data-window="projects" onmousedown="bringToFront(this.closest('.window-wrapper'))">
-          <div class="window__titlebar" onmousedown="startDrag(event, this.closest('.window-wrapper'))">
+        <div
+          class="window"
+          data-window="projects"
+          onmousedown="bringToFront(this.closest('.window-wrapper'))"
+        >
+          <div
+            class="window__titlebar"
+            onmousedown="startDrag(event, this.closest('.window-wrapper'))"
+          >
             <span class="window__title"><h3>Projects</h3></span>
             <button class="window__close">✕</button>
           </div>
           <div class="window__content">
             <p>
-              - Project 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br />
-              - Project 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />
+              - Project 1: Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit.<br />
+              - Project 2: Sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.<br />
             </p>
           </div>
         </div>
@@ -143,12 +246,21 @@
         <img src="assets/img/email.png" alt="" width="370px" />
       </div>
       <div class="desktop__element" style="--x: 1025px; --y: 795px">
-        <a href="https://www.linkedin.com/in/juliette-zaccour/" target="_blank"><img src="assets/img/linkedin-icon.png" alt="LinkedIn icon" width="200px" /></a>
+        <a href="https://www.linkedin.com/in/juliette-zaccour/" target="_blank"
+          ><img
+            src="assets/img/linkedin-icon.png"
+            alt="LinkedIn icon"
+            width="200px"
+        /></a>
       </div>
       <div class="desktop__element" style="--x: 1260px; --y: 795px">
-        <a href="https://github.com/Biksil" target="_blank"><img src="assets/img/github-icon.png" alt="GitHub icon" width="200px" /></a>
+        <a href="https://github.com/Biksil" target="_blank"
+          ><img
+            src="assets/img/github-icon.png"
+            alt="GitHub icon"
+            width="200px"
+        /></a>
       </div>
-
     </div>
 
     <script src="home-desktop.js" defer></script>

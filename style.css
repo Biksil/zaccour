@@ -72,28 +72,54 @@ a {
 
 /* ── Theme toggle button ── */
 #theme-toggle {
+  position: relative;
   height: 100px;
   width: 100px;
   padding: 0;
   border-radius: 50%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: transparent;
   border: 0;
   pointer-events: all;
+  cursor: grab;
 }
 
-#theme-toggle img:last-child {
-  display: none;
+/* Always reserve space for both images, but only show one */
+#theme-toggle img {
+  position: absolute;
 }
 
-.lightmode #theme-toggle img:first-child {
-  display: none;
+#theme-toggle img:first-of-type { visibility: visible; }
+#theme-toggle img:last-of-type  { visibility: hidden; }
+
+.lightmode #theme-toggle img:first-of-type { visibility: hidden; }
+.lightmode #theme-toggle img:last-of-type  { visibility: visible; }
+
+/* ── Hover text ── */
+#theme-toggle .text {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: #ffffff;
+  font-family: 'A Goblin Appears!', var(--font-main);
+  font-size: 8px;
+  visibility: hidden;
 }
 
-.lightmode #theme-toggle img:last-child {
-  display: block;
+#theme-toggle:hover .text { visibility: visible; }
+
+/* Show only the relevant label per mode */
+#text-light { display: none; }
+.lightmode #text-light { display: block; }
+.lightmode #text-dark  { display: none; color: #000000; }
+
+.lightmode #theme-toggle .text {
+  color: #000000;
 }
 
 
@@ -108,7 +134,6 @@ html, body {
   position: relative;
   width: 100%;
   height: 100%;
-  /* background-image: url('assets/img/desktop-bg.png'); */
   background-size: cover;
 }
 
@@ -120,6 +145,7 @@ html, body {
   top: var(--y);
   width: fit-content;
   height: fit-content;
+  /* cursor: grab; */
 }
 
 
@@ -151,20 +177,6 @@ html, body {
 .window[data-window="projects"] { width: 410px; }
 
 /* Brush stroke outline — behind window content */
-/* .window::before {
-  content: '';
-  position: absolute;
-  top: -18px;
-  left: -18px;
-  right: -22px;
-  bottom: -22px;
-  z-index: 0;
-  pointer-events: none;
-  border-image-source: url('assets/img/hand_outline_thick.png');
-  border-image-slice: 450 fill;
-  border-image-width: 30px;
-  border-image-repeat: stretch;
-} */
 .window__brush {
   position: absolute;
   top: -16px;

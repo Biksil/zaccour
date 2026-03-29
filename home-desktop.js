@@ -2,6 +2,7 @@ let dragging = null;
 let offsetX = 0;
 let offsetY = 0;
 let zCounter = 10;
+let didDrag = false;
 
 function bringToFront(el) {
   zCounter++;
@@ -9,6 +10,7 @@ function bringToFront(el) {
 }
 
 function startDrag(e, el) {
+  didDrag = false;
   dragging = el;
   bringToFront(el);
 
@@ -21,6 +23,8 @@ function startDrag(e, el) {
 
 function moveDragging(e) {
   if (!dragging) return;
+
+  didDrag = true;
 
   const desktop = document.querySelector('.desktop');
   const dw = desktop.offsetWidth;
@@ -38,10 +42,14 @@ function moveDragging(e) {
 document.addEventListener('mousemove', moveDragging);
 document.addEventListener('mouseup', () => dragging = null);
 
+
 // Touch support
-document.querySelectorAll('.window__titlebar').forEach(titlebar => {
-  titlebar.addEventListener('touchstart', (e) => {
-    startDrag(e.touches[0], titlebar.closest('.window-wrapper'));
+document.querySelectorAll('.window__titlebar, .desktop__element').forEach(el => {
+  el.addEventListener('touchstart', (e) => {
+    const target = el.classList.contains('window__titlebar')
+      ? el.closest('.window-wrapper')
+      : el;
+    startDrag(e.touches[0], target);
     e.preventDefault();
   });
 });
@@ -74,6 +82,7 @@ if (lightmode === "active") {
 }
 
 themeToggle.addEventListener('click', () => {
+  if (didDrag) return;
   lightmode = localStorage.getItem('lightmode');
   lightmode !== "active" ? enableLightMode() : disableLightMode();
 })

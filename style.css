@@ -173,8 +173,8 @@ html, body {
 
 /* Per-window widths */
 .window[data-window="about"]    { width: 480px; }
-.window[data-window="updates"]  { width: 350px; }
-.window[data-window="projects"] { width: 410px; }
+.window[data-window="updates"]  { width: 360px; }
+.window[data-window="projects"] { width: 430px; }
 
 /* Brush stroke outline — behind window content */
 .window__brush {
@@ -241,7 +241,7 @@ html, body {
 .window__content {
   overflow-y: auto;    /* internal scroll lives here */
   overflow-x: hidden;
-  padding: 1.25rem;
+  padding: 1.1rem;
   max-height: 200px;    /* default height for all .window content */
 }
 
@@ -258,7 +258,7 @@ html, body {
 }
 
 .window__content::-webkit-scrollbar {
-  width: 12px;
+  width: 15px;
 }
 
 .window__content::-webkit-scrollbar-track {
@@ -279,21 +279,21 @@ html, body {
 /* ── Updates list ── */
 .updates-list {
   list-style: none;
-  padding: 0;
+  padding: 0.25rem;
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .updates-list li {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-bottom: 0.5rem;
   line-height: 1.3;
 }
 
 .updates-list .date {
   flex-shrink: 0;
-  min-width: 60px;
+  min-width: 90px;
   font-weight: bold;
   color: #666;
 }

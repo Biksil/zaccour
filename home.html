@@ -12,7 +12,7 @@
       <!-- Light/dark mode toggle -->
       <div
         class="desktop__element"
-        style="--x: 450px; --y: 430px; z-index: 10"
+        style="--x: 900px; --y: 430px; z-index: 10"
         onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
         <button
@@ -48,16 +48,16 @@
         />
       </div>
 
-      <!-- Progress bar -->
+      <!-- Progress / Loading bar -->
       <div
         class="desktop__element"
-        style="--x: 650px; --y: 175px"
+        style="--x: 520px; --y: 125px; z-index: 1; pointer-events: none"
         onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
         <img
-          src="assets/img/progress-bar.png"
+          src="assets/img/loading-bar.gif"
           alt="decorative progress bar"
-          width="100px"
+          width="400px"
         />
       </div>
 
@@ -67,7 +67,7 @@
         style="--x: 100px; --y: 425px"
         onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
-        <a href="https://www.linkedin.com/in/juliette-zaccour/" target="_blank"
+        <a href="assets/JulietteZaccour_CV.pdf" target="_blank"
           ><img
           src="assets/img/cv-icon.png"
           alt="CV icon"
@@ -115,6 +115,8 @@
               >.<br />
               I research the socio-technical implications of synthetic data, and
               how AI is reshaping how researchers access data.<br />
+              more content blablabla...<br />
+              blabla bla blablabla...
             </p>
             <div class="tags">
               <span class="tag">Synthetic data</span>
@@ -152,61 +154,86 @@
             onmousedown="startDrag(event, this.closest('.window-wrapper'))"
           >
             <span class="window__title"><h3>Updates!</h3></span>
-            <button class="window__close">✕</button>
+            <button class="window__close"> ✕ </button>
           </div>
           <div class="window__content">
             <ul class="updates-list">
               <li>
                 <span class="date">[06.2026]</span>
                 <span class="desc"
-                  >went to the FAccT'2026 Doctoral Consortium (Montreal,
+                  >going to FAccT'2026 for the Doctoral Consortium (Montreal,
                   Canada)</span
                 >
               </li>
               <li>
-                <span class="date">[07.2025]</span>
+                <span class="date">[08.2025]</span>
                 <span class="desc"
-                  >started interning as a Research Scientist at the Aioi Lab
-                  (Oxford, UK)</span
+                  >contributed to an article by Teo Canmetin and Luc Rocher on 
+                  <a href="https://www.techpolicy.press/why-we-shouldnt-trust-facial-recognitions-glowing-test-scores/" target="_blank">the risks of facial recognition benchmarks</a></span
                 >
               </li>
               <li>
                 <span class="date">[07.2025]</span>
                 <span class="desc"
-                  >presented Access Denied at the Privacy Research Day (Paris,
-                  France)</span
+                  >started interning as a Research Scientist at the <a href="https://www.aioilab-oxford.eu/" target="_blank">Aioi Lab</a> (Oxford, UK), 
+                  working on AI governance and synthetic data evaluation 
+                  </span
+                >
+              </li>
+              <li>
+                <span class="date">[07.2025]</span>
+                <span class="desc"
+                  >presented at the '<a href="https://www.cnil.fr/fr/privacy-research-day-2025" target="_blank">Privacy Research Day</a> 2025 (Paris, France)</span
+                >
+              </li>
+              <li>
+                <span class="date">[06.2025]</span>
+                <span class="desc"
+                  >presented at the '<a href="https://aigap2025.isti.cnr.it/" target="_blank">Mind the AI-GAP</a>' workshop (HHAI'25, Pisa, Italy)</span
                 >
               </li>
               <li>
                 <span class="date">[05.2025]</span>
                 <span class="desc"
-                  >presented Access Denied at CHI'2025 (Yokohama, Japan)</span
+                  >presented <a href="https://dl.acm.org/doi/full/10.1145/3706598.3713963" target="_blank">Access Denied</a> at <a href="https://chi2025.acm.org/" target="_blank">CHI'2025</a> (Yokohama, Japan)</span
                 >
               </li>
               <li>
-                <span class="date">[04.2025]</span>
+                <span class="date">[05.2025]</span>
+                <span class="desc">was awarded the St Catherine's College Scholarship</span>
+              </li>
+              <li>
+                <span class="date">[03.2025]</span>
                 <span class="desc"
-                  >obtained Best Paper Honorable Mention at CHI'2025</span
+                  >obtained Best Paper <a href="https://chi2025.acm.org/best-paper-and-honorable-mention-awards-at-chi-2025/" target="_blank">Honorable Mention</a> 
+                  at CHI'2025 for <a href="https://dl.acm.org/doi/full/10.1145/3706598.3713963" target="_blank">Access Denied</a></span
                 >
               </li>
               <li>
-                <span class="date">[XX.2025]</span>
-                <span class="desc">Catz scholarship</span>
+                <span class="date">[12.2024]</span>
+                <span class="desc">was awarded the Oxford Women in Computer Science Society (<a href="https://www.oxwocs.com/" target="_blank">OxWoCS</a>) Scholarship, supporting my attendance to CHI'2025</span>
               </li>
               <li>
-                <span class="date">[XX.2025]</span>
-                <span class="desc">WOCS scholarship</span>
+                <span class="date">[12.2024]</span>
+                <span class="desc">submitted expert feedback on the EU DSA Article 40 regarding data access provisions for researchers, under the lead of Diyi Liu and Manuel Tonneau
+                    [<a href="https://www.oii.ox.ac.uk/news-events/oii-researchers-propose-recommendations-for-effective-data-governance-in-light-of-the-eus-digital-service-act/" target="_blank">see blog post</a>]</span>
               </li>
               <li>
-                <span class="date">[XX.2025]</span>
+                <span class="date">[06.2024]</span>
+                <span class="desc">was awarded the St Catherine's College Light Graduate Scholarship</span>
+              </li>
+              <li>
+                <span class="date">[01.2024]</span>
+                <span class="desc">won an award for an ML competition for Digital Green on <a href="https://github.com/rapsoj/crop-yield-estimate?tab=readme-ov-file" target="_blank">yield prediction</a></span>
+              </li>
+              <li>
+                <span class="date">[11.2023]</span>
+                <span class="desc">joined the Future Impact Group</span>
+              </li>
+              <li>
+                <span class="date">[10.2023]</span>
                 <span class="desc"
-                  >obtained Best Paper Honorable Mention at CHI'2025</span
-                >
-              </li>
-              <li>
-                <span class="date">[XX.2025]</span>
-                <span class="desc"
-                  >obtained Best Paper Honorable Mention at CHI'2025</span
+                  >started my PhD at the Oxford Internet Institute as a Clarendon Scholar</span
                 >
               </li>
             </ul>

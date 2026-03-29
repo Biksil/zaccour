@@ -121,9 +121,6 @@ html, body {
   width: fit-content;
   height: fit-content;
 }
-.desktop__element img {
-  pointer-events: none;
-}
 
 
 /* ── Window wrapper — handles positioning, shadow, dragging ── */

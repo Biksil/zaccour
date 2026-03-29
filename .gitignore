@@ -2,7 +2,10 @@
 *.png
 *.ttf
 *.otf
+*.gif
 
+# Exceptions -- png files ot include
+!assets/img/hand_outline_thick.png 
 
 
 # This .gitignore is appropriate for repositories deployed to GitHub Pages and using

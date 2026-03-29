@@ -26,10 +26,9 @@
 
 /* ── Tokens ── */
 :root {
-  --color-bg: #272727;
-  /*--color-text: #ffffff;*/
-  --color-accent: #c29be8; /* for links and highlights */
-  --font-main: 'Open Sans', 'Inter', sans-serif; /* Futura */
+  --color-bg: #000000;
+  --color-accent: #c29be8;
+  --font-main: 'Open Sans', 'Inter', sans-serif;
   --max-width: 1200px;
 }
 
@@ -50,7 +49,6 @@ body {
   font-family: var(--font-main);
   font-size: 17px;
   line-height: 1.4;
-  margin-bottom: 30px;
 }
 
 main {
@@ -60,9 +58,7 @@ main {
 }
 
 a {
-  color: var(--color-accent); /*hotpink*/
-  /*background-color: rgb(255, 255, 255);*/
-  /*font-weight: bold;*/
+  color: var(--color-accent);
 }
 
 
@@ -70,7 +66,7 @@ a {
 html, body {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* kills page scroll entirely */
+  overflow: hidden;
 }
 
 .desktop {
@@ -88,47 +84,71 @@ html, body {
   top: var(--y);
 }
 
-/* ── Windows ── */
-.window {
+
+/* ── Window wrapper — handles positioning, shadow, dragging ── */
+.window-wrapper {
   position: absolute;
   left: var(--x);
   top: var(--y);
-  width: 400px;        /* default width, will make this resizable later */
+  /* box-shadow: 4px 4px 0px #1a1a1a; */
+  isolation: isolate;
+}
+
+/* ── Window — never positions itself, wrapper does that ── */
+.window {
+  position: relative;
+  /* isolation: isolate; */
   display: flex;
   flex-direction: column;
+  width: 400px;
+  max-height: calc(100vh - 90px);
   border: 2px solid #1a1a1a;
   background: #fff;
-  box-shadow: 4px 4px 0px #1a1a1a; /* retro back layer */
+  box-shadow: 4px 4px 0px #1a1a1a;
 }
 
-.window[data-window="about"] {
-  width: 480px;
-}
+/* Per-window widths */
+.window[data-window="about"]    { width: 480px; }
+.window[data-window="updates"]  { width: 350px; }
+.window[data-window="projects"] { width: 410px; }
 
-.window[data-window="updates"] {
-  width: 350px;
-}
-
-.window[data-window="projects"] {
-  width: 410px;
-}
-
-.window::before {
+/* Brush stroke outline — behind window content */
+/* .window::before {
   content: '';
   position: absolute;
-  inset: -20px; /* how far the brush stroke extends beyond the window */
-  /*top: -10px;
-  left: -10px;
-  right: -14px;
-  bottom: -14px;*/
-  z-index: -1;
-
-  border-image-source: url('assets/img/brush-border.png');
-  border-image-slice: 40 fill; /* needs to match how wide the corner brush marks are */
-  border-image-width: 40px;
+  top: -18px;
+  left: -18px;
+  right: -22px;
+  bottom: -22px;
+  z-index: 0;
+  pointer-events: none;
+  border-image-source: url('assets/img/hand_outline_thick.png');
+  border-image-slice: 450 fill;
+  border-image-width: 30px;
+  border-image-repeat: stretch;
+} */
+.window__brush {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  right: -20px;
+  bottom: -20px;
+  z-index: -1;                  /* behind .window within the wrapper's isolated context */
+  pointer-events: none;
+  border-image-source: url('assets/img/hand_outline_thick.png');
+  border-image-slice: 450 fill;
+  border-image-width: 30px;
   border-image-repeat: stretch;
 }
 
+/* Push window children above the brush layer */
+.window__titlebar,
+.window__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Titlebar ── */
 .window__titlebar {
   display: flex;
   justify-content: space-between;
@@ -136,9 +156,38 @@ html, body {
   padding: 0.4rem 0.75rem;
   background: #1a1a1a;
   color: #fff;
-  cursor: grab;        /* signals it's draggable — JS comes later */
-  user-select: none;   /* stops text highlighting while dragging */
+  cursor: grab;
+  user-select: none;
+  flex-shrink: 0;
 }
+
+/* ── Content area ── */
+.window__content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  min-height: 0;
+  padding: 1.25rem;
+  /* scrollbar-width: thin;
+  scrollbar-color: #555555 #e8e4d8; */
+}
+
+/* Per-window content heights */
+.window[data-window="about"]    .window__content { max-height: 480px; }
+.window[data-window="updates"]  .window__content { max-height: 200px; }
+.window[data-window="projects"] .window__content { max-height: 300px; }
+
+/* ── Scrollbar (Chrome/Safari/Edge) ──
+.window__content::-webkit-scrollbar { width: 12px; }
+.window__content::-webkit-scrollbar-track {
+  background: #e8e4d8;
+  border-left: 1px solid #ccc;
+}
+.window__content::-webkit-scrollbar-thumb {
+  background: #555555;
+  border-radius: 0;
+}
+.window__content::-webkit-scrollbar-thumb:hover { background: #444; } */
 
 /* Scroll bar styling */
 .window__content {
@@ -179,29 +228,12 @@ html, body {
 }
 
 
-.window {
-  display: flex;
-  flex-direction: column;
-  max-height: calc(100vh - 90px); /* 80px accounts for taskbar + breathing room */
-}
-
-.window__titlebar {
-  flex-shrink: 0; /* titlebar never compresses */
-}
-
-.window__content {
-  overflow-y: auto;
-  flex: 1;        /* takes remaining height after titlebar */
-  min-height: 0;  /* critical — without this, flex children ignore overflow */
-}
-
-
-/* Lists */
+/* ── Updates list ── */
 .updates-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 13px; /* Smaller than body 17px */
+  font-size: 13px;
 }
 
 .updates-list li {
@@ -218,35 +250,35 @@ html, body {
   color: #666;
 }
 
-.updates-list .desc {
-  flex: 1;
-}
+.updates-list .desc { flex: 1; }
 
 
 /* ── Tags ── */
-.tags {
-  margin-top: 0.5rem;
-}
+.tags { margin-top: 0.5rem; }
 
 .tag {
   display: inline-block;
   background: #000;
   color: #fff;
   padding: 0.25rem 0.5rem;
-  /*border-radius: 0.25rem;*/
   margin: 0.125rem 0.25rem 0.125rem 0;
   font-size: 12px;
   font-weight: bold;
 }
 
 
-/* ── Responsive design for mobile ── */
+/* ── Mobile ── */
 @media (max-width: 768px) {
   .desktop__element { display: none; }
 
-  .window {
+  .window-wrapper {
     position: fixed;
-    inset: 0;          /* shorthand for top/right/bottom/left: 0 */
+    inset: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .window {
     width: 100%;
     max-height: 100%;
   }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,98 +6,127 @@
     <title>Juliette Zaccour</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-    <body>
-
+  <body>
     <div class="desktop">
-        <!-- Elements on the "desktop" -->
 
-        <!-- Character -->
-        <div class="desktop__element" style="--x: 100px; --y: 175px;">
-        <img src="assets/img/character.png" alt="character" width="1300px"/> <!-- Needs to be a svg -->
-        </div>
+      <!-- Character -->
+      <div class="desktop__element" style="--x: 350px; --y: 275px">
+        <img src="assets/img/character-animated.gif" alt="character" width="800px" />
+      </div>
 
+      <!-- Progress bar -->
+      <div class="desktop__element" style="--x: 650px; --y: 175px">
+        <img src="assets/img/progress-bar.png" alt="decorative progress bar" width="100px" />
+      </div>
 
-        <!-- Progress bar -->
-        <div class="desktop__element" style="--x: 650px; --y: 175px;">
-        <img src="assets/img/progress-bar.png" alt="decorative progress bar" width="100px"/>
-        </div>
+      <!-- CV icon -->
+      <div class="desktop__element" style="--x: 100px; --y: 475px">
+        <img src="assets/img/cv-icon.png" alt="CV icon" width="1300px" />
+      </div>
 
+      <!-- Hobby box -->
+      <div class="desktop__element" style="--x: 100px; --y: 775px">
+        <img src="assets/img/hobby-box.png" alt="Cardboard box icon" width="1300px" />
+      </div>
 
-        <!-- ABOUT window -->
-        <div class="window" style="--x: 60px; --y: 60px;" data-window="about"; onmousedown="bringToFront(this)">
-        <div class="window__titlebar"; onmousedown="startDrag(event, this.closest('.window'))">
+      <!-- Socials -->
+      <div class="desktop__element" style="--x: 1100px; --y: 775px">
+        <p>to connect: juliette[dot]zaccour[at]oii[dot]ox[dot]ac[dot]uk</p>
+        <img src="assets/img/linkedin-icon.png" alt="LinkedIn icon" width="100px" />
+      </div>
+
+      <!-- ABOUT window -->
+      <div class="window-wrapper" style="--x: 90px; --y: 90px">
+        <div class="window__brush"></div>
+        <div class="window" data-window="about" onmousedown="bringToFront(this.closest('.window-wrapper'))">
+          <div class="window__titlebar" onmousedown="startDrag(event, this.closest('.window-wrapper'))">
             <span class="window__title"><h3>About</h3></span>
             <button class="window__close">✕</button>
-        </div>
-        <div class="window__content">
-            <!-- anything here scrolls internally -->
-            <p>Hi!<br>
-                I'm a PhD candidate at the Oxford Internet Institute, as part of the
-                 <a href="https://syntheticsociety.oii.ox.ac.uk/", target="_blank">Synthetic Society Lab</a>.<br>
-                I research the socio-technical implications of synthetic data, and how AI is reshaping how researchers access data.<br>
+          </div>
+          <div class="window__content">
+            <p>
+              Hi!<br />
+              I'm a PhD candidate at the Oxford Internet Institute, as part of the
+              <a href="https://syntheticsociety.oii.ox.ac.uk/" target="_blank">Synthetic Society Lab</a>.<br />
+              I research the socio-technical implications of synthetic data, and
+              how AI is reshaping how researchers access data.<br />
             </p>
-
-            <!-- Tags -->
-            <!--<p><strong>Research Interests:</strong></p>-->
             <div class="tags">
-                <span class="tag">Synthetic Data</span>
-                <span class="tag">AI Ethics</span>
-                <span class="tag">Data Governance</span>
+              <span class="tag">Synthetic data</span>
+              <span class="tag">AI evaluation</span>
+              <span class="tag">Data access</span>
             </div>
+          </div>
         </div>
-        </div>
+      </div>
 
-
-        <!-- UPDATES window -->
-        <div class="window" style="--x: 950px; --y: 60px;" data-window="updates"; onmousedown="bringToFront(this)">
-        <div class="window__titlebar"; onmousedown="startDrag(event, this.closest('.window'))">
+      <!-- UPDATES window -->
+      <div class="window-wrapper" style="--x: 950px; --y: 60px">
+        <div class="window__brush"></div>
+        <div class="window" data-window="updates" onmousedown="bringToFront(this.closest('.window-wrapper'))">
+          <div class="window__titlebar" onmousedown="startDrag(event, this.closest('.window-wrapper'))">
             <span class="window__title"><h3>Updates!</h3></span>
             <button class="window__close">✕</button>
-        </div>
-        <div class="window__content">
-            <!-- anything here scrolls internally -->
+          </div>
+          <div class="window__content">
             <ul class="updates-list">
-                <li><span class="date">[06.2026]</span> <span class="desc">went to the FAccT'2026 Doctoral Consortium (Montreal, Canada)</span></li>
-                <li><span class="date">[07.2025]</span> <span class="desc">started interning as a Research Scientist at the Aioi Lab (Oxford, UK)</span></li>
-                <li><span class="date">[07.2025]</span> <span class="desc">presented Access Denied at the Privacy Research Day (Paris, France)</span></li>
-                <li><span class="date">[05.2025]</span> <span class="desc">presented Access Denied at CHI'2025 (Yokohama, Japan)</span></li>
-                <li><span class="date">[04.2025]</span> <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span></li>
-                <li><span class="date">[XX.2025]</span> <span class="desc">Catz scholarship</span></li>
-                <li><span class="date">[XX.2025]</span> <span class="desc">WOCS scholarship</span></li>
-                <li><span class="date">[XX.2025]</span> <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span></li>
-                <li><span class="date">[XX.2025]</span> <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span></li>
+              <li>
+                <span class="date">[06.2026]</span>
+                <span class="desc">went to the FAccT'2026 Doctoral Consortium (Montreal, Canada)</span>
+              </li>
+              <li>
+                <span class="date">[07.2025]</span>
+                <span class="desc">started interning as a Research Scientist at the Aioi Lab (Oxford, UK)</span>
+              </li>
+              <li>
+                <span class="date">[07.2025]</span>
+                <span class="desc">presented Access Denied at the Privacy Research Day (Paris, France)</span>
+              </li>
+              <li>
+                <span class="date">[05.2025]</span>
+                <span class="desc">presented Access Denied at CHI'2025 (Yokohama, Japan)</span>
+              </li>
+              <li>
+                <span class="date">[04.2025]</span>
+                <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span>
+              </li>
+              <li>
+                <span class="date">[XX.2025]</span>
+                <span class="desc">Catz scholarship</span>
+              </li>
+              <li>
+                <span class="date">[XX.2025]</span>
+                <span class="desc">WOCS scholarship</span>
+              </li>
+              <li>
+                <span class="date">[XX.2025]</span>
+                <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span>
+              </li>
+              <li>
+                <span class="date">[XX.2025]</span>
+                <span class="desc">obtained Best Paper Honorable Mention at CHI'2025</span>
+              </li>
             </ul>
+          </div>
         </div>
-        </div>
+      </div>
 
-
-        <!-- CV icon -->
-        <div class="desktop__element" style="--x: 100px; --y: 475px;">
-        <img src="assets/img/cv-icon.png" alt="CV icon" width="1300px"/> <!-- Needs to be a svg -->
-        </div>
-
-
-        <!-- Hobby box -->
-        <div class="desktop__element" style="--x: 100px; --y: 775px;">
-        <img src="assets/img/hobby-box.png" alt="Cardboard box icon" width="1300px"/> <!-- Needs to be a svg -->
-        </div>
-
-
-        <!-- PROJECTS window -->
-        <div class="window" style="--x: 1050px; --y: 400px;" data-window="projects"; onmousedown="bringToFront(this)">
-        <div class="window__titlebar"; onmousedown="startDrag(event, this.closest('.window'))">
+      <!-- PROJECTS window -->
+      <div class="window-wrapper" style="--x: 1040px; --y: 250px">
+        <div class="window__brush"></div>
+        <div class="window" data-window="projects" onmousedown="bringToFront(this.closest('.window-wrapper'))">
+          <div class="window__titlebar" onmousedown="startDrag(event, this.closest('.window-wrapper'))">
             <span class="window__title"><h3>Projects</h3></span>
             <button class="window__close">✕</button>
-        </div>
-        <div class="window__content">
-            <!-- anything here scrolls internally -->
+          </div>
+          <div class="window__content">
             <p>
-                - Project 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-                - Project 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+              - Project 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br />
+              - Project 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />
             </p>
+          </div>
         </div>
-        </div>
-
+      </div>
 
     </div>
 

@@ -3,6 +3,8 @@ let offsetX = 0;
 let offsetY = 0;
 let zCounter = 10;
 let didDrag = false;
+let dragDistance = 0;
+
 
 function bringToFront(el) {
   zCounter++;
@@ -10,6 +12,7 @@ function bringToFront(el) {
 }
 
 function startDrag(e, el) {
+  dragDistance = 0;
   didDrag = false;
   dragging = el;
   bringToFront(el);
@@ -24,6 +27,7 @@ function startDrag(e, el) {
 function moveDragging(e) {
   if (!dragging) return;
 
+  dragDistance++;
   didDrag = true;
 
   const desktop = document.querySelector('.desktop');
@@ -83,6 +87,17 @@ if (lightmode === "active") {
 
 themeToggle.addEventListener('click', () => {
   if (didDrag) return;
+  if (dragDistance > 5) return;
   lightmode = localStorage.getItem('lightmode');
   lightmode !== "active" ? enableLightMode() : disableLightMode();
 })
+
+// Same thing for other clickable + draggable elements
+document.querySelectorAll('.desktop__element a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    if (didDrag) e.preventDefault();
+    link.addEventListener('click', (e) => {
+    if (dragDistance > 5) e.preventDefault();
+  });
+  });
+});

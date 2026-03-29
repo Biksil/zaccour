@@ -218,8 +218,6 @@ html, body {
   flex: 1;
   min-height: 0;
   padding: 1.25rem;
-  /* scrollbar-width: thin;
-  scrollbar-color: #555555 #e8e4d8; */
 }
 
 /* Per-window content heights */
@@ -264,12 +262,12 @@ html, body {
 }
 
 .window__content::-webkit-scrollbar-track {
-  background: #e8e4d8;       /* the groove */
+  background: #dfdfdf;       /* the groove */
   border-left: 1px solid #ccc;
 }
 
 .window__content::-webkit-scrollbar-thumb {
-  background: #555555;       /* the draggable bit */
+  background: #282828;       /* the draggable bit */
   border-radius: 0;          /* keep it sharp for the retro feel */
 }
 

@@ -8,6 +8,7 @@
   </head>
   <body>
     <div class="desktop">
+        
       <!-- Light/dark mode toggle -->
       <div
         class="desktop__element"
@@ -66,12 +67,13 @@
         style="--x: 100px; --y: 475px"
         onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
-        <img
+        <a href="https://www.linkedin.com/in/juliette-zaccour/" target="_blank"
+          ><img
           src="assets/img/cv-icon.png"
           alt="CV icon"
           width="150px"
           onmousedown="startDrag(event, this.closest('.desktop__element'))"
-        />
+        /></a>
       </div>
 
       <!-- Hobby box -->
@@ -239,10 +241,10 @@
       </div>
 
       <!-- Socials -->
-      <div class="desktop__element" style="--x: 965px; --y: 675px">
+      <div class="desktop__element" style="--x: 965px; --y: 675px; pointer-events: none">
         <img src="assets/img/connect.png" alt="let's connect" width="170px" />
       </div>
-      <div class="desktop__element" style="--x: 1025px; --y: 750px">
+      <div class="desktop__element" style="--x: 1025px; --y: 750px; pointer-events: none">
         <img src="assets/img/email.png" alt="" width="370px" />
       </div>
       <div class="desktop__element" style="--x: 1025px; --y: 795px">

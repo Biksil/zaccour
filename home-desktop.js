@@ -101,3 +101,25 @@ document.querySelectorAll('.desktop__element a').forEach(link => {
   });
   });
 });
+
+
+// Project subpage opening //
+const modal = document.getElementById('add-project-modal');
+const btnAdd = document.querySelector('.btn-open');
+const modalClose = document.getElementById('modal-close');
+
+btnAdd.addEventListener('click', () => {
+  modal.style.display = 'block';
+  // Trigger reflow so the animation replays each time
+  void modal.offsetWidth;
+  modal.classList.add('is-open');
+});
+
+modalClose.addEventListener('click', () => {
+  modal.classList.remove('is-open');
+  modal.classList.add('is-closing');
+  modal.addEventListener('animationend', () => {
+    modal.classList.remove('is-closing');
+    modal.style.display = 'none';
+  }, { once: true }); // "once: true" auto-removes the listener after it fires
+});

@@ -148,6 +148,16 @@ html, body {
   /* cursor: grab; */
 }
 
+/* Hover animation */
+.desktop__element {
+  /* your existing styles... */
+  transition: transform 0.2s ease;
+}
+
+.desktop__element:hover {
+  transform: scale(1.05) rotate(3deg);
+}
+
 
 /* ── Window wrapper — handles positioning, shadow, dragging ── */
 .window-wrapper {
@@ -224,6 +234,44 @@ html, body {
 .window[data-window="about"]    .window__content { max-height: 480px; }
 .window[data-window="updates"]  .window__content { max-height: 200px; }
 .window[data-window="projects"] .window__content { max-height: 300px; }
+
+.project-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-item img {
+  flex-shrink: 0;  /* prevents image from squishing */
+}
+
+.project-item p {
+  flex: 1;
+}
+
+
+/* Button for the Project window */
+.btn-open {
+  display: block;
+  margin: 0.75rem auto 0;
+  width: 28px;
+  height: 28px;
+  background: #1a1a1a;
+  color: #fff;
+  border: 2px solid #1a1a1a;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  /* font-family: 'A Goblin Appears!', var(--font-main); */
+}
+
+.btn-open:hover {
+  background: #fff;
+  color: #1a1a1a;
+}
+
 
 /* ── Scrollbar (Chrome/Safari/Edge) ──
 .window__content::-webkit-scrollbar { width: 12px; }
@@ -330,4 +378,79 @@ html, body {
     width: 100%;
     max-height: 100%;
   }
+}
+
+
+/* Overlay for the Projects sub-page */
+/* .modal-overlay {
+  position: fixed;
+  top: 3vh;
+  left: 3vw;
+  top: 2vh;
+  left: 2vw;
+  width: 95vw;
+  height: 95vh;
+  z-index: 1000;
+  display: none;
+  transform-origin: bottom right;
+} */
+
+.modal-overlay {
+  position: fixed;
+  top: 3vh;
+  left: 2vw;
+  width: 96vw;
+  height: calc(100vh - 3vh);
+  z-index: 1000;
+  display: none;
+  transform-origin: bottom right;
+}
+
+.modal-overlay .window {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-overlay .window__content {
+  max-height: calc(100% - 40px); /* subtract titlebar height */
+}
+
+/* The opening animation */
+@keyframes window-open {
+  0%   { transform: scale(0.05); opacity: 0; }
+  60%  { transform: scale(1.03); opacity: 1; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+.modal-overlay.is-open {
+  display: block;
+  animation: window-open 0.35s cubic-bezier(0.2, 0, 0.3, 1) forwards;
+}
+
+@keyframes window-close {
+  0%   { transform: scale(1);    opacity: 1; }
+  100% { transform: scale(0.05); opacity: 0; }
+}
+
+.modal-overlay.is-closing {
+  animation: window-close 0.25s cubic-bezier(0.2, 0, 0.3, 1) forwards;
+}
+
+.modal-overlay .window__close {
+  position: relative;
+  z-index: 10;
+  pointer-events: all;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.modal-overlay .window__brush {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  pointer-events: none;
 }

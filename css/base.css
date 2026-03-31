@@ -8,7 +8,9 @@
  */
 
 /* -- Reset -- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,7 +21,7 @@
   --color-bg: #000000;
   --color-accent: #c29be8;
   --color-text: #000000;
-  --font-main: 'Open Sans', 'Inter', sans-serif;
+  --font-main: "Open Sans", "Inter", sans-serif;
   --max-width: 1200px;
 }
 
@@ -33,12 +35,12 @@
 /* -- Base -- */
 h2 {
   font-size: 16px;
-  font-family: 'A Goblin Appears!', var(--font-main);
+  font-family: "A Goblin Appears!", var(--font-main);
 }
 
 h3 {
   font-size: 13px;
-  font-family: 'A Goblin Appears!', var(--font-main);
+  font-family: "A Goblin Appears!", var(--font-main);
 }
 
 body {
@@ -61,23 +63,23 @@ a {
 
 /* -- Custom fonts -- */
 @font-face {
-  font-family: 'Sunny Script';
-  src: url('../assets/font/sunny_script/Sunny Script.otf');
+  font-family: "Sunny Script";
+  src: url("../assets/font/sunny_script/Sunny Script.otf");
 }
 
 @font-face {
-  font-family: 'KGTeacherJordan';
-  src: url('../assets/font/teacher_jordan/KGTeacherJordan.otf');
+  font-family: "KGTeacherJordan";
+  src: url("../assets/font/teacher_jordan/KGTeacherJordan.otf");
 }
 
 @font-face {
-  font-family: 'A Goblin Appears!';
-  src: url('../assets/font/a_goblin_appears/A Goblin Appears!.otf');
+  font-family: "A Goblin Appears!";
+  src: url("../assets/font/a_goblin_appears/A Goblin Appears!.otf");
 }
 
 @font-face {
-  font-family: 'Open Sans';
-  src: url('../assets/font/Open_Sans/static/OpenSans-Regular.ttf');
+  font-family: "Open Sans";
+  src: url("../assets/font/Open_Sans/static/OpenSans-Regular.ttf");
 }
 
 /* -- Theme toggle button -- */
@@ -102,11 +104,19 @@ a {
   position: absolute;
 }
 
-#theme-toggle img:first-of-type { visibility: visible; }
-#theme-toggle img:last-of-type { visibility: hidden; }
+#theme-toggle img:first-of-type {
+  visibility: visible;
+}
+#theme-toggle img:last-of-type {
+  visibility: hidden;
+}
 
-.lightmode #theme-toggle img:first-of-type { visibility: hidden; }
-.lightmode #theme-toggle img:last-of-type { visibility: visible; }
+.lightmode #theme-toggle img:first-of-type {
+  visibility: hidden;
+}
+.lightmode #theme-toggle img:last-of-type {
+  visibility: visible;
+}
 
 /* -- Hover text -- */
 #theme-toggle .text {
@@ -116,24 +126,34 @@ a {
   transform: translateX(-50%);
   white-space: nowrap;
   color: #ffffff;
-  font-family: 'A Goblin Appears!', var(--font-main);
+  font-family: "A Goblin Appears!", var(--font-main);
   font-size: 8px;
   visibility: hidden;
 }
 
-#theme-toggle:hover .text { visibility: visible; }
+#theme-toggle:hover .text {
+  visibility: visible;
+}
 
 /* Show only the relevant label per mode */
-#text-light { display: none; }
-.lightmode #text-light { display: block; }
-.lightmode #text-dark { display: none; color: #000000; }
+#text-light {
+  display: none;
+}
+.lightmode #text-light {
+  display: block;
+}
+.lightmode #text-dark {
+  display: none;
+  color: #000000;
+}
 
 .lightmode #theme-toggle .text {
   color: #000000;
 }
 
 /* -- Desktop canvas -- */
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -185,9 +205,15 @@ html, body {
 }
 
 /* Per-window widths */
-.window[data-window="about"] { width: 480px; }
-.window[data-window="updates"] { width: 360px; }
-.window[data-window="projects"] { width: 430px; }
+.window[data-window="about"] {
+  width: 480px;
+}
+.window[data-window="updates"] {
+  width: 360px;
+}
+.window[data-window="projects"] {
+  width: 430px;
+}
 
 /* Brush stroke outline -- behind window content */
 .window__brush {
@@ -198,7 +224,7 @@ html, body {
   bottom: -20px;
   z-index: -1;
   pointer-events: none;
-  border-image-source: url('../assets/img/hand_outline_thick.png');
+  border-image-source: url("../assets/img/hand_outline_thick.png");
   border-image-slice: 450 fill;
   border-image-width: 30px;
   border-image-repeat: stretch;
@@ -315,10 +341,14 @@ html, body {
   color: #666;
 }
 
-.updates-list .desc { flex: 1; }
+.updates-list .desc {
+  flex: 1;
+}
 
 /* -- Tags -- */
-.tags { margin-top: 0.5rem; }
+.tags {
+  margin-top: 0.5rem;
+}
 
 .tag {
   display: inline-block;

@@ -39,8 +39,11 @@ function moveDragging(e) {
   const x = Math.max(0, Math.min(e.clientX - offsetX, dw - ww));
   const y = Math.max(0, Math.min(e.clientY - offsetY, dh - wh));
 
-  dragging.style.left = x + 'px';
-  dragging.style.top  = y + 'px';
+  const xPct = (x / dw) * 100;
+  const yPct = (y / dh) * 100;
+
+  dragging.style.left = xPct + '%';
+  dragging.style.top = yPct + '%';
 }
 
 document.addEventListener('mousemove', moveDragging);

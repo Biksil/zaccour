@@ -109,20 +109,28 @@
     order: 3;
   }
   .desktop > .desktop__element--cv {
-    order: 4;
-    width: 125px;
-    /* flex: 0 0 28%; */
-    margin-right: 0.8rem;
-    margin-top: 3rem;
-    margin-bottom: -1rem;
+    order: 9;
+    width: 135px;
+    flex: 0 0 30%;
+    margin-right: auto;
+    margin-bottom: -6.5rem;
+    position: relative;
+    z-index: 4;
+  }
+  .desktop > .desktop__element--cv img {
+    width: min(55vw, 120px);
   }
   .desktop > .desktop__element--hobby {
-    order: 5;
+    order: 9;
     width: 135px;
-    /* flex: 0 0 28%; */
-    margin-left: 2rem;
-    margin-top: 3rem;
-    margin-bottom: -1rem;
+    flex: 0 0 30%;
+    margin-left: auto;
+    margin-bottom: -6.5rem;
+    position: relative;
+    z-index: 4;
+  }
+  .desktop > .desktop__element--hobby img {
+    width: min(70vw, 140px);
   }
   /* .desktop > .desktop__element--theme {
     order: 6;
@@ -132,12 +140,14 @@
   } */
   .desktop > .desktop__element--loading {
     order: 8;
-    margin-bottom: -2.5rem;
+    margin-bottom: -3.5rem;
     margin-top: -2.5rem;
   }
   .desktop > .desktop__element--character {
-    order: 9;
-    margin-top: -2.5rem;
+    order: 10;
+    margin-top: -3.5rem;
+    position: relative;
+    z-index: 1;
   }
   /* .desktop > .desktop__element--connect {
     order: 10;
@@ -145,7 +155,7 @@
     justify-self: center;
   } */
   .desktop > .desktop__element--email {
-    order: 11;
+    order: 12;
     flex: 0 0 100%;
     width: 100%;
     display: flex;
@@ -156,11 +166,11 @@
     width: min(65vw, 320px);
   }
   .desktop > .desktop__element--linkedin {
-    order: 12;
+    order: 13;
     max-width: 180px;
   }
   .desktop > .desktop__element--github {
-    order: 13;
+    order: 14;
     max-width: 180px;
   }
 

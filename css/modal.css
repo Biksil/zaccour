@@ -1,0 +1,64 @@
+/*
+ * File Index
+ * 1) Modal overlay container
+ * 2) Open/close animations
+ * 3) Modal controls and brush overrides
+ */
+.modal-overlay {
+  position: fixed;
+  top: 3vh;
+  left: 2vw;
+  width: 96vw;
+  height: calc(100vh - 3vh);
+  z-index: 1000;
+  display: none;
+  transform-origin: bottom right;
+}
+
+.modal-overlay .window {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-overlay .window__content {
+  max-height: calc(100% - 40px);
+}
+
+@keyframes window-open {
+  0% { transform: scale(0.05); opacity: 0; }
+  60% { transform: scale(1.03); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-overlay.is-open {
+  display: block;
+  animation: window-open 0.35s cubic-bezier(0.2, 0, 0.3, 1) forwards;
+}
+
+@keyframes window-close {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.05); opacity: 0; }
+}
+
+.modal-overlay.is-closing {
+  animation: window-close 0.25s cubic-bezier(0.2, 0, 0.3, 1) forwards;
+}
+
+.modal-overlay .window__close {
+  position: relative;
+  z-index: 10;
+  pointer-events: all;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.modal-overlay .window__brush {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  pointer-events: none;
+}

@@ -1,0 +1,331 @@
+/*
+ * File Index
+ * 1) Reset and tokens
+ * 2) Typography and links
+ * 3) Fonts and theme toggle
+ * 4) Desktop canvas and element layout
+ * 5) Windows, lists, tags, and shared UI parts
+ */
+
+/* -- Reset -- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* -- Tokens -- */
+:root {
+  --color-bg: #000000;
+  --color-accent: #c29be8;
+  --color-text: #000000;
+  --font-main: 'Open Sans', 'Inter', sans-serif;
+  --max-width: 1200px;
+}
+
+/* Light mode overrides */
+.lightmode {
+  --color-bg: #ffffff;
+  --color-accent: #c29be8;
+  --color-text: #1a1a1a;
+}
+
+/* -- Base -- */
+h2 {
+  font-size: 16px;
+  font-family: 'A Goblin Appears!', var(--font-main);
+}
+
+h3 {
+  font-size: 13px;
+  font-family: 'A Goblin Appears!', var(--font-main);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+/* -- Custom fonts -- */
+@font-face {
+  font-family: 'Sunny Script';
+  src: url('../assets/font/sunny_script/Sunny Script.otf');
+}
+
+@font-face {
+  font-family: 'KGTeacherJordan';
+  src: url('../assets/font/teacher_jordan/KGTeacherJordan.otf');
+}
+
+@font-face {
+  font-family: 'A Goblin Appears!';
+  src: url('../assets/font/a_goblin_appears/A Goblin Appears!.otf');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/font/Open_Sans/static/OpenSans-Regular.ttf');
+}
+
+/* -- Theme toggle button -- */
+#theme-toggle {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  pointer-events: all;
+  cursor: grab;
+}
+
+/* Always reserve space for both images, but only show one */
+#theme-toggle img {
+  position: absolute;
+}
+
+#theme-toggle img:first-of-type { visibility: visible; }
+#theme-toggle img:last-of-type { visibility: hidden; }
+
+.lightmode #theme-toggle img:first-of-type { visibility: hidden; }
+.lightmode #theme-toggle img:last-of-type { visibility: visible; }
+
+/* -- Hover text -- */
+#theme-toggle .text {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: #ffffff;
+  font-family: 'A Goblin Appears!', var(--font-main);
+  font-size: 8px;
+  visibility: hidden;
+}
+
+#theme-toggle:hover .text { visibility: visible; }
+
+/* Show only the relevant label per mode */
+#text-light { display: none; }
+.lightmode #text-light { display: block; }
+.lightmode #text-dark { display: none; color: #000000; }
+
+.lightmode #theme-toggle .text {
+  color: #000000;
+}
+
+/* -- Desktop canvas -- */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.desktop {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+/* -- Desktop elements (character, icons, etc.) -- */
+.desktop__element {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: fit-content;
+  height: fit-content;
+  transition: transform 0.2s ease;
+}
+
+.desktop__element:hover {
+  transform: scale(1.05) rotate(3deg);
+}
+
+.desktop__element--character {
+  top: auto;
+  bottom: 0;
+}
+
+/* -- Window wrapper/layout -- */
+.window-wrapper {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  isolation: isolate;
+}
+
+.window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  max-height: calc(100vh - 90px);
+  border: 2px solid #1a1a1a;
+  background: #fff;
+  box-shadow: 4px 4px 0px #1a1a1a;
+}
+
+/* Per-window widths */
+.window[data-window="about"] { width: 480px; }
+.window[data-window="updates"] { width: 360px; }
+.window[data-window="projects"] { width: 430px; }
+
+/* Brush stroke outline -- behind window content */
+.window__brush {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  right: -20px;
+  bottom: -20px;
+  z-index: -1;
+  pointer-events: none;
+  border-image-source: url('../assets/img/hand_outline_thick.png');
+  border-image-slice: 450 fill;
+  border-image-width: 30px;
+  border-image-repeat: stretch;
+}
+
+.window__titlebar,
+.window__content {
+  position: relative;
+  z-index: 1;
+}
+
+.window__titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+  background: #1a1a1a;
+  color: #fff;
+  cursor: grab;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.window__content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  min-height: 0;
+  padding: 1.1rem;
+  max-height: 200px;
+}
+
+.window[data-window="about"] .window__content {
+  max-height: 480px;
+}
+
+.window[data-window="projects"] .window__content {
+  max-height: 300px;
+}
+
+.project-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-item img {
+  flex-shrink: 0;
+}
+
+.project-item p {
+  flex: 1;
+}
+
+/* Button for the Project window */
+.btn-open {
+  display: block;
+  margin: 0.75rem auto 0;
+  width: 28px;
+  height: 28px;
+  background: #1a1a1a;
+  color: #fff;
+  border: 2px solid #1a1a1a;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.btn-open:hover {
+  background: #fff;
+  color: #1a1a1a;
+}
+
+/* Scroll bar styling */
+.window__content::-webkit-scrollbar {
+  width: 15px;
+}
+
+.window__content::-webkit-scrollbar-track {
+  background: #dfdfdf;
+  border-left: 1px solid #ccc;
+}
+
+.window__content::-webkit-scrollbar-thumb {
+  background: #282828;
+  border-radius: 0;
+}
+
+.window__content::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* -- Updates list -- */
+.updates-list {
+  list-style: none;
+  padding: 0.25rem;
+  margin: 0;
+  font-size: 15px;
+}
+
+.updates-list li {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.updates-list .date {
+  flex-shrink: 0;
+  min-width: 90px;
+  font-weight: bold;
+  color: #666;
+}
+
+.updates-list .desc { flex: 1; }
+
+/* -- Tags -- */
+.tags { margin-top: 0.5rem; }
+
+.tag {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  margin: 0.125rem 0.25rem 0.125rem 0;
+  font-size: 12px;
+  font-weight: bold;
+}

@@ -1,0 +1,84 @@
+/*
+ * File Index
+ * 1) Mobile canvas flow
+ * 2) Element/window stacking rules
+ * 3) Mobile order map
+ */
+@media (max-width: 768px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    min-height: 100vh;
+  }
+
+  .desktop > .desktop__element,
+  .desktop > .window-wrapper:not(.modal-overlay) {
+    position: relative;
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    transform: none;
+    order: 50;
+  }
+
+  .desktop__element:hover {
+    transform: none;
+  }
+
+  .desktop__element img {
+    display: block;
+    width: min(92vw, 420px);
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  #theme-toggle {
+    margin-inline: auto;
+  }
+
+  .window-wrapper {
+    isolation: auto;
+  }
+
+  .window {
+    width: 100%;
+    max-height: none;
+  }
+
+  .window__content {
+    max-height: none;
+  }
+
+  .window__brush {
+    display: none;
+  }
+
+  /* Order map: change these numbers to reorder mobile sections (lowest number appears first) */
+  .desktop > .window-wrapper:has(.window[data-window="about"]) { order: 1; }
+  .desktop > .window-wrapper:has(.window[data-window="updates"]) { order: 2; }
+  .desktop > .window-wrapper:has(.window[data-window="projects"]) { order: 3; }
+  .desktop > .desktop__element:has(img[src$="cv-icon.png"]) { order: 4; }
+  .desktop > .desktop__element:has(img[src$="hobby-box.png"]) { order: 5; }
+  .desktop > .desktop__element:has(#theme-toggle) { order: 6; }
+  .desktop > .desktop__element:has(img[src$="connect.png"]) { order: 7; }
+  .desktop > .desktop__element:has(img[src$="email.png"]) { order: 8; }
+  .desktop > .desktop__element:has(img[src$="linkedin-icon.png"]) { order: 9; }
+  .desktop > .desktop__element:has(img[src$="github-icon.png"]) { order: 10; }
+  .desktop > .desktop__element:has(img[src$="post-it.png"]) { order: 11; }
+  .desktop > .desktop__element:has(img[src$="loading-bar.gif"]) { order: 12; }
+  .desktop > .desktop__element:has(img[src$="character-animated.gif"]) { order: 13; }
+}

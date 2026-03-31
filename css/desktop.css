@@ -1,0 +1,98 @@
+/*
+ * File Index
+ * 1) Desktop typography scaling
+ * 2) Desktop window sizing
+ * 3) Desktop image scaling
+ */
+@media (min-width: 769px) {
+  body {
+    font-size: clamp(14px, 0.9vw, 17px);
+  }
+
+  h3 {
+    font-size: clamp(11px, 0.75vw, 13px);
+  }
+
+  #theme-toggle {
+    width: clamp(80px, 7vw, 100px);
+    height: clamp(80px, 7vw, 100px);
+  }
+
+  #theme-toggle img {
+    width: clamp(100px, 9vw, 130px);
+    height: auto;
+  }
+
+  .window[data-window="about"] {
+    width: clamp(360px, 34vw, 480px);
+  }
+
+  .window[data-window="updates"] {
+    width: clamp(300px, 26vw, 360px);
+  }
+
+  .window[data-window="projects"] {
+    width: clamp(320px, 30vw, 430px);
+  }
+
+  .window[data-window="about"] .window__content {
+    max-height: min(52vh, 480px);
+  }
+
+  .window[data-window="updates"] .window__content {
+    max-height: min(30vh, 220px);
+  }
+
+  .window[data-window="projects"] .window__content {
+    max-height: min(40vh, 320px);
+  }
+
+  .updates-list {
+    font-size: clamp(13px, 0.82vw, 15px);
+  }
+
+  .tag {
+    font-size: clamp(10px, 0.72vw, 12px);
+  }
+
+  .desktop img[src$="character-animated.gif"] {
+    width: clamp(320px, 30vw, 500px);
+    height: auto;
+  }
+
+  .desktop img[src$="loading-bar.gif"] {
+    width: clamp(270px, 24vw, 400px);
+    height: auto;
+  }
+
+  .desktop img[src$="cv-icon.png"] {
+    width: clamp(110px, 10vw, 150px);
+    height: auto;
+  }
+
+  .desktop img[src$="hobby-box.png"] {
+    width: clamp(180px, 16vw, 250px);
+    height: auto;
+  }
+
+  .desktop img[src$="post-it.png"] {
+    width: clamp(125px, 11vw, 170px);
+    height: auto;
+  }
+
+  .desktop img[src$="connect.png"] {
+    width: clamp(120px, 11vw, 170px);
+    height: auto;
+  }
+
+  .desktop img[src$="email.png"] {
+    width: clamp(250px, 23vw, 370px);
+    height: auto;
+  }
+
+  .desktop img[src$="linkedin-icon.png"],
+  .desktop img[src$="github-icon.png"] {
+    width: clamp(130px, 12vw, 200px);
+    height: auto;
+  }
+}

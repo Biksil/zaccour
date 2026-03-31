@@ -10,6 +10,130 @@ function isMobileLayout() {
 }
 
 
+// Position loading bar relative to character
+function positionLoadingBarAboveCharacter() {
+  const desktop = document.querySelector('.desktop');
+  const character = document.querySelector('.desktop__element--character');
+  const loading = document.querySelector('.desktop__element--loading');
+
+  if (!desktop || !character || !loading) return;
+
+  if (isMobileLayout()) {
+    loading.style.left = '';
+    loading.style.top = '';
+    loading.style.bottom = '';
+    return;
+  }
+
+  const desktopRect = desktop.getBoundingClientRect();
+  const characterRect = character.getBoundingClientRect();
+  const loadingRect = loading.getBoundingClientRect();
+  const configuredGap = Number.parseFloat(
+    getComputedStyle(desktop).getPropertyValue('--loading-character-gap')
+  );
+  const gap = Number.isFinite(configuredGap) ? configuredGap : 14;
+
+  const x = characterRect.left - desktopRect.left + (characterRect.width - loadingRect.width) / 2;
+  const bottom = characterRect.height + gap;
+
+  const maxX = Math.max(0, desktopRect.width - loadingRect.width);
+  const clampedX = Math.min(Math.max(0, x), maxX);
+  const clampedBottom = Math.max(0, bottom);
+
+  loading.style.left = `${clampedX}px`;
+  loading.style.top = 'auto';
+  loading.style.bottom = `${clampedBottom}px`;
+}
+
+// Position light bulb relative to character
+function positionThemeToggleRelativeToCharacter() {
+  const desktop = document.querySelector('.desktop');
+  const character = document.querySelector('.desktop__element--character');
+  const theme = document.querySelector('.desktop__element--theme');
+
+  if (!desktop || !character || !theme) return;
+
+  if (isMobileLayout()) {
+    theme.style.left = '';
+    theme.style.top = '';
+    theme.style.bottom = '';
+    return;
+  }
+
+  const desktopRect = desktop.getBoundingClientRect();
+  const characterRect = character.getBoundingClientRect();
+  const themeRect = theme.getBoundingClientRect();
+
+  const ratioX = Number.parseFloat(
+    getComputedStyle(desktop).getPropertyValue('--theme-character-offset-x-ratio')
+  );
+  const ratioY = Number.parseFloat(
+    getComputedStyle(desktop).getPropertyValue('--theme-character-offset-y-ratio')
+  );
+
+  const dxRatio = Number.isFinite(ratioX) ? ratioX : 0.95;
+  const dyRatio = Number.isFinite(ratioY) ? ratioY : -0.35;
+
+  const x = characterRect.left - desktopRect.left + characterRect.width * dxRatio;
+  const y = characterRect.top - desktopRect.top + characterRect.height * dyRatio;
+
+  const maxX = Math.max(0, desktopRect.width - themeRect.width);
+  const maxY = Math.max(0, desktopRect.height - themeRect.height);
+  const clampedX = Math.min(Math.max(0, x), maxX);
+  const clampedY = Math.min(Math.max(0, y), maxY);
+
+  theme.style.left = `${clampedX}px`;
+  theme.style.top = `${clampedY}px`;
+  theme.style.bottom = 'auto';
+}
+
+
+// Position post-it relative to about window
+function positionPostitRelativeToAboutWindow() {
+  const desktop = document.querySelector('.desktop');
+  const aboutWrapper = document.querySelector('.window-wrapper--about');
+  const postit = document.querySelector('.desktop__element--postit');
+
+  if (!desktop || !aboutWrapper || !postit) return;
+
+  if (isMobileLayout()) {
+    postit.style.left = '';
+    postit.style.top = '';
+    postit.style.bottom = '';
+    return;
+  }
+
+  const desktopRect = desktop.getBoundingClientRect();
+  const aboutRect = aboutWrapper.getBoundingClientRect();
+  const postitRect = postit.getBoundingClientRect();
+
+  const offsetX = Number.parseFloat(
+    getComputedStyle(desktop).getPropertyValue('--postit-about-offset-x')
+  );
+  const offsetY = Number.parseFloat(
+    getComputedStyle(desktop).getPropertyValue('--postit-about-offset-y')
+  );
+
+  const dx = Number.isFinite(offsetX) ? offsetX : 12;
+  const dy = Number.isFinite(offsetY) ? offsetY : 8;
+
+  const x = aboutRect.right - desktopRect.left - postitRect.width + dx;
+  const y = aboutRect.bottom - desktopRect.top - postitRect.height + dy;
+
+  const maxX = Math.max(0, desktopRect.width - postitRect.width);
+  const maxY = Math.max(0, desktopRect.height - postitRect.height);
+  const clampedX = Math.min(Math.max(0, x), maxX);
+  const clampedY = Math.min(Math.max(0, y), maxY);
+
+  postit.style.left = `${clampedX}px`;
+  postit.style.top = `${clampedY}px`;
+  postit.style.bottom = 'auto';
+}
+
+
+
+// Dragging logic
+
 function bringToFront(el) {
   zCounter++;
   el.style.zIndex = zCounter;
@@ -53,7 +177,9 @@ function moveDragging(e) {
 }
 
 document.addEventListener('mousemove', moveDragging);
-document.addEventListener('mouseup', () => dragging = null);
+document.addEventListener('mouseup', () => {
+  dragging = null;
+});
 
 
 // Touch support
@@ -75,7 +201,19 @@ document.addEventListener('touchmove', (e) => {
   e.preventDefault();
 }, { passive: false });
 
-document.addEventListener('touchend', () => dragging = null);
+document.addEventListener('touchend', () => {
+  dragging = null;
+});
+
+function positionElementsRelativeToCharacter() {
+  positionLoadingBarAboveCharacter();
+  positionThemeToggleRelativeToCharacter();
+  positionPostitRelativeToAboutWindow();
+}
+
+window.addEventListener('DOMContentLoaded', positionElementsRelativeToCharacter);
+window.addEventListener('load', positionElementsRelativeToCharacter);
+window.addEventListener('resize', positionElementsRelativeToCharacter);
 
 
 // Light/dark mode toggle

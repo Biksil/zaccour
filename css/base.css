@@ -206,7 +206,7 @@ body {
 
 /* Per-window widths */
 .window[data-window="about"] {
-  width: 480px;
+  width: 380px;
 }
 .window[data-window="updates"] {
   width: 360px;

@@ -4,9 +4,21 @@
  * 2) Desktop window sizing
  * 3) Desktop image scaling
  */
+
+/* Place elements relative to the character */
 @media (min-width: 769px) {
+  .desktop {
+    --loading-character-gap: -25; /* Relative to character */
+    --theme-character-offset-x-ratio: 0.82; /* Relative to character: Increase to move right, decrease to move left */
+    --theme-character-offset-y-ratio: -0.1; /* Relative to character: Increase to move down, decrease to move up */
+    --postit-about-offset-x: -20;
+    --postit-about-offset-y: 100;
+  }
+
   body {
     font-size: clamp(14px, 0.9vw, 17px);
+    padding-left: 25px;
+    padding-right: 25px;
   }
 
   h3 {
@@ -24,7 +36,7 @@
   }
 
   .window[data-window="about"] {
-    width: clamp(360px, 34vw, 480px);
+    width: clamp(360px, 34vw, 430px);
   }
 
   .window[data-window="updates"] {
@@ -61,7 +73,7 @@
   }
 
   .desktop img[src$="loading-bar.gif"] {
-    width: clamp(270px, 24vw, 400px);
+    width: clamp(300px, 24vw, 500px);
     height: auto;
   }
 
@@ -71,28 +83,141 @@
   }
 
   .desktop img[src$="hobby-box.png"] {
-    width: clamp(180px, 16vw, 250px);
+    width: clamp(200px, 16vw, 250px);
     height: auto;
   }
 
   .desktop img[src$="post-it.png"] {
-    width: clamp(125px, 11vw, 170px);
+    width: clamp(150px, 11vw, 170px);
     height: auto;
   }
 
   .desktop img[src$="connect.png"] {
-    width: clamp(120px, 11vw, 170px);
+    width: clamp(140px, 11vw, 170px);
     height: auto;
   }
 
   .desktop img[src$="email.png"] {
-    width: clamp(250px, 23vw, 370px);
+    width: clamp(280px, 23vw, 370px);
     height: auto;
   }
 
   .desktop img[src$="linkedin-icon.png"],
   .desktop img[src$="github-icon.png"] {
-    width: clamp(130px, 12vw, 200px);
+    width: clamp(160px, 12vw, 200px);
     height: auto;
   }
+
 }
+
+/* Intermediary layout: tablet/small desktop */
+@media (min-width: 769px) and (max-width: 1050px) {
+  .desktop {
+    --loading-character-gap: -10;
+    --theme-character-offset-x-ratio: 0.72;
+    --theme-character-offset-y-ratio: -0.02;
+    --postit-about-offset-x: -20;
+    --postit-about-offset-y: 75;
+  }
+
+  body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .window[data-window="about"] {
+    width: clamp(300px, 42vw, 360px);
+  }
+
+  .window[data-window="updates"] {
+    width: clamp(320px, 40vw, 430px);
+  }
+
+  .window[data-window="projects"] {
+    width: clamp(330px, 42vw, 440px);
+  }
+
+  .window[data-window="about"] .window__content {
+    max-height: min(50vh, 430px);
+  }
+
+  .window[data-window="updates"] .window__content {
+    max-height: min(26vh, 190px);
+  }
+
+  .window[data-window="projects"] .window__content {
+    max-height: min(34vh, 280px);
+  }
+
+  .desktop img[src$="character-animated.gif"] {
+    width: clamp(240px, 30vw, 340px);
+  }
+
+  .desktop img[src$="loading-bar.gif"] {
+    width: clamp(210px, 26vw, 300px);
+  }
+
+  .desktop img[src$="cv-icon.png"] {
+    width: clamp(90px, 9vw, 120px);
+  }
+
+  .desktop img[src$="hobby-box.png"] {
+    width: clamp(110px, 12vw, 160px);
+  }
+
+  .desktop img[src$="email.png"] {
+    width: clamp(200px, 20vw, 260px);
+  }
+
+  .desktop img[src$="linkedin-icon.png"],
+  .desktop img[src$="github-icon.png"] {
+    width: clamp(90px, 9vw, 125px);
+  }
+
+  .desktop__element--character {
+    left: 3% !important;
+    top: auto !important;
+    bottom: 0 !important;
+  }
+
+  .window-wrapper--updates {
+    left: 55% !important;
+    top: 4% !important;
+  }
+
+  .window-wrapper--projects {
+    left: 55% !important;
+    top: 37% !important;
+  }
+
+  .desktop__element--cv {
+    left: 56% !important;
+    top: 73% !important;
+  }
+
+  .desktop__element--hobby {
+    left: 72% !important;
+    top: 73% !important;
+  }
+
+  .desktop__element--connect {
+    left: 57% !important;
+    top: 80% !important;
+  }
+
+  .desktop__element--email {
+    left: 62% !important;
+    top: 84% !important;
+  }
+
+  .desktop__element--linkedin {
+    left: 62% !important;
+    top: 92% !important;
+  }
+
+  .desktop__element--github {
+    left: 74% !important;
+    top: 92% !important;
+  }
+}
+

@@ -4,7 +4,7 @@
  * 2) Element/window stacking rules
  * 3) Mobile order map
  */
-@media (max-width: 768px) {
+@media (max-width: 804px) {
   html,
   body {
     height: auto;

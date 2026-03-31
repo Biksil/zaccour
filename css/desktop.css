@@ -111,13 +111,18 @@
 }
 
 /* Intermediary layout: tablet/small desktop */
-@media (min-width: 769px) and (max-width: 1050px) {
+@media (min-width: 805px) and (max-width: 1050px) {
   .desktop {
-    --loading-character-gap: -10;
-    --theme-character-offset-x-ratio: 0.72;
+    --loading-character-gap: -55;
+    --theme-character-offset-x-ratio: 0.8;
     --theme-character-offset-y-ratio: -0.02;
     --postit-about-offset-x: -20;
     --postit-about-offset-y: 75;
+    --project-window-width: clamp(325px, 42vw, 486px);
+    --project-column-left: calc(97% - var(--project-window-width));
+    --social-right-inset: calc(100% - (var(--project-column-left) + var(--project-window-width)));
+    --linkedin-github-offset: 150px;
+    --social-icon-width: 120px;
   }
 
   body {
@@ -126,15 +131,15 @@
   }
 
   .window[data-window="about"] {
-    width: clamp(300px, 42vw, 360px);
+    width: clamp(300px, 45vw, 425px);
   }
 
   .window[data-window="updates"] {
-    width: clamp(320px, 40vw, 430px);
+    width: var(--project-window-width);
   }
 
   .window[data-window="projects"] {
-    width: clamp(330px, 42vw, 440px);
+    width: var(--project-window-width);
   }
 
   .window[data-window="about"] .window__content {
@@ -146,15 +151,19 @@
   }
 
   .window[data-window="projects"] .window__content {
-    max-height: min(34vh, 280px);
+    max-height: min(34vh, 360px);
+  }
+
+  .desktop img[src$="post-it.png"] {
+    width: clamp(125px, 32vw, 125px);
   }
 
   .desktop img[src$="character-animated.gif"] {
-    width: clamp(240px, 30vw, 340px);
+    width: clamp(350px, 32vw, 450px);
   }
 
   .desktop img[src$="loading-bar.gif"] {
-    width: clamp(210px, 26vw, 300px);
+    width: clamp(300px, 26vw, 350px);
   }
 
   .desktop img[src$="cv-icon.png"] {
@@ -162,16 +171,16 @@
   }
 
   .desktop img[src$="hobby-box.png"] {
-    width: clamp(110px, 12vw, 160px);
+    width: clamp(100px, 15vw, 180px);
   }
 
   .desktop img[src$="email.png"] {
-    width: clamp(200px, 20vw, 260px);
+    width: clamp(270px, 20vw, 260px);
   }
 
   .desktop img[src$="linkedin-icon.png"],
   .desktop img[src$="github-icon.png"] {
-    width: clamp(90px, 9vw, 125px);
+    width: var(--social-icon-width);
   }
 
   .desktop__element--character {
@@ -180,43 +189,57 @@
     bottom: 0 !important;
   }
 
+  .window-wrapper--about {
+    left: 3% !important;
+    top: 4% !important;
+  }
+
   .window-wrapper--updates {
-    left: 55% !important;
+    left: var(--project-column-left) !important;
     top: 4% !important;
   }
 
   .window-wrapper--projects {
-    left: 55% !important;
+    left: var(--project-column-left) !important;
     top: 37% !important;
   }
 
   .desktop__element--cv {
-    left: 56% !important;
-    top: 73% !important;
+    left: 6% !important;
+    top: 33% !important;
+    z-index: 13;
   }
 
   .desktop__element--hobby {
-    left: 72% !important;
-    top: 73% !important;
+    left: 47% !important;
+    top: 82% !important;
   }
 
   .desktop__element--connect {
-    left: 57% !important;
-    top: 80% !important;
+    display: none !important;
   }
 
   .desktop__element--email {
-    left: 62% !important;
-    top: 84% !important;
+    left: calc(
+      100% - (
+        var(--social-right-inset) +
+        ((var(--linkedin-github-offset) + var(--social-icon-width)) / 2)
+      )
+    ) !important;
+    right: auto !important;
+    top: 87% !important;
+    transform: translateX(-50%);
   }
 
   .desktop__element--linkedin {
-    left: 62% !important;
+    left: auto !important;
+    right: calc(var(--social-right-inset) + var(--linkedin-github-offset)) !important;
     top: 92% !important;
   }
 
   .desktop__element--github {
-    left: 74% !important;
+    left: auto !important;
+    right: var(--social-right-inset) !important;
     top: 92% !important;
   }
 }

@@ -5,6 +5,10 @@ let zCounter = 10;
 let didDrag = false;
 let dragDistance = 0;
 
+function isMobileLayout() {
+  return window.matchMedia('(max-width: 768px)').matches;
+}
+
 
 function bringToFront(el) {
   zCounter++;
@@ -12,6 +16,8 @@ function bringToFront(el) {
 }
 
 function startDrag(e, el) {
+  if (isMobileLayout()) return;
+
   dragDistance = 0;
   didDrag = false;
   dragging = el;
@@ -53,6 +59,8 @@ document.addEventListener('mouseup', () => dragging = null);
 // Touch support
 document.querySelectorAll('.window__titlebar, .desktop__element').forEach(el => {
   el.addEventListener('touchstart', (e) => {
+    if (isMobileLayout()) return;
+
     const target = el.classList.contains('window__titlebar')
       ? el.closest('.window-wrapper')
       : el;

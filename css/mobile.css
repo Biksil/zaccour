@@ -48,6 +48,11 @@
 
   #theme-toggle {
     margin-inline: auto;
+    cursor: pointer;
+  }
+
+  .window__titlebar {
+    cursor: default;
   }
 
   .window-wrapper {
@@ -55,12 +60,26 @@
   }
 
   .window {
-    width: 100%;
+    width: 95%;
     max-height: none;
+  }
+
+  .window[data-window] {
+    width: 100%;
   }
 
   .window__content {
     max-height: none;
+  }
+
+  .window[data-window="updates"] .window__content {
+    max-height: 25vh;
+    overflow-y: auto;
+  }
+
+  .window[data-window="projects"] .window__content {
+    max-height: none;
+    overflow-y: auto;
   }
 
   .window__brush {
@@ -69,8 +88,8 @@
 
   /* Order map: change these numbers to reorder mobile sections (lowest number appears first) */
   .desktop > .window-wrapper:has(.window[data-window="about"]) { order: 1; }
-  .desktop > .window-wrapper:has(.window[data-window="updates"]) { order: 2; }
-  .desktop > .window-wrapper:has(.window[data-window="projects"]) { order: 3; }
+  .desktop > .window-wrapper:has(.window[data-window="projects"]) { order: 2; }
+  .desktop > .window-wrapper:has(.window[data-window="updates"]) { order: 3; }
   .desktop > .desktop__element:has(img[src$="cv-icon.png"]) { order: 4; }
   .desktop > .desktop__element:has(img[src$="hobby-box.png"]) { order: 5; }
   .desktop > .desktop__element:has(#theme-toggle) { order: 6; }

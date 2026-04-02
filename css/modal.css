@@ -32,7 +32,7 @@
 
 .modal-overlay.is-open {
   display: block;
-  animation: window-open 0.35s cubic-bezier(0.2, 0, 0.3, 1) forwards;
+  animation: window-open 0.55s cubic-bezier(0.2, 0, 0.3, 1) forwards;
 }
 
 @keyframes window-close {

@@ -37,26 +37,28 @@
       <!-- Character -->
       <div
         class="desktop__element desktop__element--character"
-        style="--x: 32.64%; z-index: 1; pointer-events: none"
+        style="--x: 32.64%; z-index: 1;"
         onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
         <img
           src="assets/img/character-animated.gif"
           alt="character"
           width="500px"
+          onmousedown="startDrag(event, this.closest('.desktop__element'))"
         />
       </div>
 
       <!-- Progress / Loading bar -->
       <div
         class="desktop__element desktop__element--loading"
-        style="--x: 36.11%; --y: 15%; z-index: 1; pointer-events: none"
+        style="--x: 36.11%; --y: 15%; z-index: 1;"
         onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
         <img
           src="assets/img/loading-bar.gif"
           alt="decorative progress bar"
           width="450px"
+          onmousedown="startDrag(event, this.closest('.desktop__element'))"
         />
       </div>
 
@@ -353,30 +355,48 @@
       <!-- Socials -->
       <div
         class="desktop__element desktop__element--connect"
-        style="--x: 65%; --y: 76%; pointer-events: none"
+        style="--x: 65%; --y: 76%;"
+        onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
-        <img src="assets/img/connect.png" alt="let's connect" width="170px" />
+        <img 
+          src="assets/img/connect.png" 
+          alt="let's connect" 
+          width="170px" 
+          onmousedown="startDrag(event, this.closest('.desktop__element'))"
+        />
       </div>
       <div
         class="desktop__element desktop__element--email"
-        style="--x: 71.18%; --y: 83.33%; pointer-events: none"
+        style="--x: 71.18%; --y: 83.33%;"
+        onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
-        <img src="assets/img/email.png" alt="" width="370px" />
+        <img 
+          src="assets/img/email.png" 
+          alt="" 
+          width="370px" 
+          onmousedown="startDrag(event, this.closest('.desktop__element'))"
+        />
       </div>
-      <div class="desktop__element desktop__element--linkedin" style="--x: 68%; --y: 90%">
+      <div 
+        class="desktop__element desktop__element--linkedin" style="--x: 68%; --y: 90%" 
+        onmousedown="bringToFront(this.closest('.desktop__element'))">
         <a href="https://www.linkedin.com/in/juliette-zaccour/" target="_blank"
           ><img
             src="assets/img/linkedin-icon.png"
             alt="LinkedIn icon"
             width="200px"
+            onmousedown="startDrag(event, this.closest('.desktop__element'))"
         /></a>
       </div>
-      <div class="desktop__element desktop__element--github" style="--x: 85%; --y: 90%">
+      <div 
+        class="desktop__element desktop__element--github" style="--x: 85%; --y: 90%" 
+        onmousedown="bringToFront(this.closest('.desktop__element'))">
         <a href="https://github.com/Biksil" target="_blank"
           ><img
             src="assets/img/github-icon.png"
             alt="GitHub icon"
             width="200px"
+            onmousedown="startDrag(event, this.closest('.desktop__element'))"
         /></a>
       </div>
 

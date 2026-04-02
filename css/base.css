@@ -176,7 +176,7 @@ body {
   transition: transform 0.2s ease;
 }
 
-.desktop__element:hover {
+.desktop__element:not(.desktop__element--character):not(.desktop__element--loading):hover {
   transform: scale(1.05) rotate(3deg);
 }
 

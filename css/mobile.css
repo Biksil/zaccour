@@ -19,6 +19,7 @@
     gap: 1rem 0.5rem; /* row-gap column-gap */
     justify-content: center;
     padding: 1rem;
+    padding-bottom: 2rem;
     height: auto;
     min-height: 100vh;
     align-content: flex-start;
@@ -140,7 +141,7 @@
   } */
   .desktop > .desktop__element--loading {
     order: 8;
-    margin-bottom: -3.5rem;
+    margin-bottom: -2.5rem;
     margin-top: -2.5rem;
   }
   .desktop > .desktop__element--character {

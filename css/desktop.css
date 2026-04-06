@@ -69,7 +69,7 @@
     font-size: clamp(10px, 0.72vw, 12px);
   }
 
-  .desktop img[src$="character-blink.gif"] {
+  .desktop__element--character img {
     width: clamp(24rem, 30vw, 42rem);
     height: auto;
   }
@@ -165,7 +165,7 @@
     width: clamp(125px, 32vw, 125px);
   }
 
-  .desktop img[src$="character-blink.gif"] {
+  .desktop__element--character img {
     width: clamp(350px, 32vw, 450px);
   }
 

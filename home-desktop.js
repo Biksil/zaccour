@@ -4,6 +4,37 @@ let offsetY = 0;
 let zCounter = 10;
 let didDrag = false;
 let dragDistance = 0;
+const characterBlinkSrc = 'assets/img/character/character-blink.gif';
+const characterDragSrc = 'assets/img/character/character-grab.gif';
+
+function getCharacterImage() {
+  return document.querySelector('.desktop__element--character img');
+}
+
+function setCharacterDraggingState(isDragging) {
+  const characterImg = getCharacterImage();
+  if (!characterImg) return;
+
+  if (isDragging) {
+    characterImg.style.transition = 'none';
+    characterImg.src = characterDragSrc;
+    return;
+  }
+
+  if (!characterImg.src.includes('character-grab.gif')) {
+    return;
+  }
+
+  characterImg.style.transition = 'none';
+  characterImg.src = characterBlinkSrc;
+}
+
+function preloadCharacterImages() {
+  [characterBlinkSrc, characterDragSrc].forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
+}
 
 function isMobileLayout() {
   return window.matchMedia('(max-width: 768px)').matches;
@@ -44,6 +75,7 @@ function positionLoadingBarAboveCharacter() {
   loading.style.top = 'auto';
   loading.style.bottom = `${clampedBottom}px`;
 }
+
 
 // Position light bulb relative to character
 function positionThemeToggleRelativeToCharacter() {
@@ -131,8 +163,8 @@ function positionPostitRelativeToAboutWindow() {
 }
 
 
-
-// Dragging logic
+/////////////////////
+// Dragging logic //
 
 function bringToFront(el) {
   zCounter++;
@@ -147,11 +179,25 @@ function startDrag(e, el) {
   dragging = el;
   bringToFront(el);
 
+  if (el.classList.contains('desktop__element--character')) {
+    setCharacterDraggingState(true);
+  }
+
   const rect = el.getBoundingClientRect();
   offsetX = e.clientX - rect.left;
   offsetY = e.clientY - rect.top;
 
   e.preventDefault();
+}
+
+function stopDrag() {
+  if (!dragging) return;
+
+  if (dragging.classList.contains('desktop__element--character')) {
+    setCharacterDraggingState(false);
+  }
+
+  dragging = null;
 }
 
 function moveDragging(e) {
@@ -177,9 +223,7 @@ function moveDragging(e) {
 }
 
 document.addEventListener('mousemove', moveDragging);
-document.addEventListener('mouseup', () => {
-  dragging = null;
-});
+document.addEventListener('mouseup', stopDrag);
 
 
 // Touch support
@@ -202,10 +246,14 @@ document.addEventListener('touchmove', (e) => {
 }, { passive: false });
 
 document.addEventListener('touchend', () => {
-  dragging = null;
+  stopDrag();
 });
 
-// Randomize post-it image
+document.addEventListener('touchcancel', stopDrag);
+
+
+/////////////////////////////
+// Randomize post-it image //
 function randomizePostitImage() {
   const postitImages = ['compyu-cat.png', 'desk-cat.png'];
   const randomImage = postitImages[Math.floor(Math.random() * postitImages.length)];
@@ -222,6 +270,7 @@ function positionElementsRelativeToCharacter() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+  preloadCharacterImages();
   randomizePostitImage();
   positionElementsRelativeToCharacter();
 });
@@ -265,6 +314,7 @@ document.querySelectorAll('.desktop__element a').forEach(link => {
 });
 
 
+/////////////////////////////
 // Project subpage opening //
 const modal = document.getElementById('add-project-modal');
 const btnAdd = document.querySelector('.btn-open');

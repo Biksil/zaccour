@@ -8,7 +8,9 @@
 /* Place elements relative to the character */
 @media (min-width: 769px) {
   .desktop {
-    --loading-character-gap: -25; /* Relative to character */
+    width: min(100%, 1600px);
+    margin: 0 auto;
+    --loading-character-gap: -35; /* Relative to character */
     --theme-character-offset-x-ratio: 0.82; /* Relative to character: Increase to move right, decrease to move left */
     --theme-character-offset-y-ratio: -0.1; /* Relative to character: Increase to move down, decrease to move up */
     --postit-about-offset-x: -20;
@@ -26,25 +28,25 @@
   }
 
   #theme-toggle {
-    width: clamp(80px, 7vw, 100px);
-    height: clamp(80px, 7vw, 100px);
+    width: clamp(6rem, 7vw, 9rem);
+    height: clamp(6rem, 7vw, 9rem);
   }
 
   #theme-toggle img {
-    width: clamp(100px, 9vw, 130px);
+    width: clamp(8rem, 9vw, 11rem);
     height: auto;
   }
 
   .window[data-window="about"] {
-    width: clamp(360px, 34vw, 430px);
+    width: clamp(24rem, 34vw, 34rem);
   }
 
   .window[data-window="updates"] {
-    width: clamp(300px, 26vw, 360px);
+    width: clamp(20rem, 26vw, 28rem);
   }
 
   .window[data-window="projects"] {
-    width: clamp(320px, 30vw, 430px);
+    width: clamp(22rem, 30vw, 34rem);
   }
 
   .window[data-window="about"] .window__content {
@@ -67,44 +69,49 @@
     font-size: clamp(10px, 0.72vw, 12px);
   }
 
-  .desktop img[src$="character-animated.gif"] {
-    width: clamp(320px, 30vw, 500px);
+  .desktop img[src$="character-blink.gif"] {
+    width: clamp(24rem, 30vw, 42rem);
     height: auto;
   }
 
   .desktop img[src$="loading-bar.gif"] {
-    width: clamp(300px, 24vw, 500px);
+    width: clamp(22rem, 26vw, 38rem);
     height: auto;
   }
 
   .desktop img[src$="cv-icon.png"] {
-    width: clamp(110px, 10vw, 150px);
+    width: clamp(7rem, 10vw, 11rem);
     height: auto;
   }
 
   .desktop img[src$="hobby-box.png"] {
-    width: clamp(200px, 16vw, 250px);
+    width: clamp(14rem, 16vw, 18rem);
     height: auto;
   }
 
-  .desktop img[src$="post-it.png"] {
-    width: clamp(150px, 11vw, 170px);
+  #postit-image {
+    width: clamp(10rem, 11vw, 13rem);
     height: auto;
   }
 
   .desktop img[src$="connect.png"] {
-    width: clamp(140px, 11vw, 170px);
+    width: clamp(10rem, 11vw, 13rem);
     height: auto;
   }
 
   .desktop img[src$="email.png"] {
-    width: clamp(280px, 23vw, 370px);
+    width: clamp(20rem, 24vw, 30rem);
     height: auto;
   }
 
   .desktop img[src$="linkedin-icon.png"],
   .desktop img[src$="github-icon.png"] {
-    width: clamp(160px, 12vw, 200px);
+    width: clamp(11rem, 12vw, 15rem);
+    height: auto;
+  }
+
+  .project-item img {
+    width: clamp(5rem, 8vw, 7rem);
     height: auto;
   }
 
@@ -113,7 +120,7 @@
 /* Intermediary layout: tablet/small desktop */
 @media (min-width: 805px) and (max-width: 1050px) {
   .desktop {
-    --loading-character-gap: -55;
+    --loading-character-gap: -45;
     --theme-character-offset-x-ratio: 0.8;
     --theme-character-offset-y-ratio: -0.02;
     --postit-about-offset-x: -20;
@@ -154,11 +161,11 @@
     max-height: min(34vh, 360px);
   }
 
-  .desktop img[src$="post-it.png"] {
+  #postit-image {
     width: clamp(125px, 32vw, 125px);
   }
 
-  .desktop img[src$="character-animated.gif"] {
+  .desktop img[src$="character-blink.gif"] {
     width: clamp(350px, 32vw, 450px);
   }
 
@@ -184,35 +191,35 @@
   }
 
   .desktop__element--character {
-    left: 3% !important;
-    top: auto !important;
-    bottom: 0 !important;
+    left: 3%;
+    top: auto;
+    bottom: 0;
   }
 
   .window-wrapper--about {
-    left: 3% !important;
-    top: 4% !important;
+    left: 3%;
+    top: 4%;
   }
 
   .window-wrapper--updates {
-    left: var(--project-column-left) !important;
-    top: 4% !important;
+    left: var(--project-column-left);
+    top: 4%;
   }
 
   .window-wrapper--projects {
-    left: var(--project-column-left) !important;
-    top: 37% !important;
+    left: var(--project-column-left);
+    top: 37%;
   }
 
   .desktop__element--cv {
-    left: 6% !important;
-    top: 33% !important;
+    left: 6%;
+    top: 33%;
     z-index: 13;
   }
 
   .desktop__element--hobby {
-    left: 47% !important;
-    top: 82% !important;
+    left: 47%;
+    top: 82%;
   }
 
   .desktop__element--connect {
@@ -225,22 +232,22 @@
         var(--social-right-inset) +
         ((var(--linkedin-github-offset) + var(--social-icon-width)) / 2)
       )
-    ) !important;
-    right: auto !important;
-    top: 87% !important;
+    );
+    right: auto;
+    top: 87%;
     transform: translateX(-50%);
   }
 
   .desktop__element--linkedin {
-    left: auto !important;
-    right: calc(var(--social-right-inset) + var(--linkedin-github-offset)) !important;
-    top: 92% !important;
+    left: auto;
+    right: calc(var(--social-right-inset) + var(--linkedin-github-offset));
+    top: 92%;
   }
 
   .desktop__element--github {
-    left: auto !important;
-    right: var(--social-right-inset) !important;
-    top: 92% !important;
+    left: auto;
+    right: var(--social-right-inset);
+    top: 92%;
   }
 }
 

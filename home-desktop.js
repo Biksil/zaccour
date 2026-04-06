@@ -205,13 +205,26 @@ document.addEventListener('touchend', () => {
   dragging = null;
 });
 
+// Randomize post-it image
+function randomizePostitImage() {
+  const postitImages = ['compyu-cat.png', 'desk-cat.png'];
+  const randomImage = postitImages[Math.floor(Math.random() * postitImages.length)];
+  const postitImg = document.getElementById('postit-image');
+  if (postitImg) {
+    postitImg.src = `assets/img/post-it/${randomImage}`;
+  }
+}
+
 function positionElementsRelativeToCharacter() {
   positionLoadingBarAboveCharacter();
   positionThemeToggleRelativeToCharacter();
   positionPostitRelativeToAboutWindow();
 }
 
-window.addEventListener('DOMContentLoaded', positionElementsRelativeToCharacter);
+window.addEventListener('DOMContentLoaded', () => {
+  randomizePostitImage();
+  positionElementsRelativeToCharacter();
+});
 window.addEventListener('load', positionElementsRelativeToCharacter);
 window.addEventListener('resize', positionElementsRelativeToCharacter);
 

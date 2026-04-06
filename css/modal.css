@@ -6,22 +6,26 @@
  */
 .modal-overlay {
   position: fixed;
-  top: 3vh;
+  top: 2.5vh;
+  bottom: 2.5vh;
   left: 2vw;
   width: 96vw;
-  height: calc(100vh - 3vh);
+  height: auto;
   z-index: 1000;
   display: none;
   transform-origin: bottom right;
+  pointer-events: none;
 }
 
 .modal-overlay .window {
   width: 100%;
   height: 100%;
+  max-height: none;
 }
 
 .modal-overlay .window__content {
-  max-height: calc(100% - 40px);
+  max-height: none;
+  height: auto;
 }
 
 @keyframes window-open {
@@ -33,6 +37,7 @@
 .modal-overlay.is-open {
   display: block;
   animation: window-open 0.55s cubic-bezier(0.2, 0, 0.3, 1) forwards;
+  pointer-events: auto;
 }
 
 @keyframes window-close {
@@ -42,6 +47,16 @@
 
 .modal-overlay.is-closing {
   animation: window-close 0.25s cubic-bezier(0.2, 0, 0.3, 1) forwards;
+  pointer-events: auto;
+}
+
+body.modal-open .desktop > :not(.modal-overlay) {
+  pointer-events: none;
+}
+
+body.modal-open .modal-overlay,
+body.modal-open .modal-overlay * {
+  pointer-events: auto;
 }
 
 .modal-overlay .window__close {
@@ -56,9 +71,16 @@
 }
 
 .modal-overlay .window__brush {
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
+  top: -16px;
+  left: -16px;
+  right: -20px;
+  bottom: -20px;
+  border: 2px solid #1a1a1a;
+  border-image-source: url("../assets/img/hand_outline_thick.png");
+  /* box-shadow: 8px 8px 0 rgba(26, 26, 26, 0.35); */
+  background: transparent;
   pointer-events: none;
+  border-image-slice: 450 fill;
+  border-image-width: 30px;
+  border-image-repeat: stretch;
 }

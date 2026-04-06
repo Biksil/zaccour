@@ -40,6 +40,10 @@ function isMobileLayout() {
   return window.matchMedia('(max-width: 768px)').matches;
 }
 
+function isModalOpen() {
+  return document.body.classList.contains('modal-open');
+}
+
 
 // Position loading bar relative to character
 function positionLoadingBarAboveCharacter() {
@@ -172,7 +176,7 @@ function bringToFront(el) {
 }
 
 function startDrag(e, el) {
-  if (isMobileLayout()) return;
+  if (isMobileLayout() || isModalOpen()) return;
 
   dragDistance = 0;
   didDrag = false;
@@ -297,6 +301,7 @@ if (lightmode === "active") {
 }
 
 themeToggle.addEventListener('click', () => {
+  if (isModalOpen()) return;
   if (didDrag) return;
   if (dragDistance > 5) return;
   lightmode = localStorage.getItem('lightmode');
@@ -306,6 +311,10 @@ themeToggle.addEventListener('click', () => {
 // Same thing for other clickable + draggable elements
 document.querySelectorAll('.desktop__element a').forEach(link => {
   link.addEventListener('click', (e) => {
+    if (isModalOpen()) {
+      e.preventDefault();
+      return;
+    }
     if (didDrag) e.preventDefault();
     link.addEventListener('click', (e) => {
     if (dragDistance > 5) e.preventDefault();
@@ -316,22 +325,39 @@ document.querySelectorAll('.desktop__element a').forEach(link => {
 
 /////////////////////////////
 // Project subpage opening //
-const modal = document.getElementById('add-project-modal');
+const modal = document.getElementById('open-project-modal');
 const btnAdd = document.querySelector('.btn-open');
-const modalClose = document.getElementById('modal-close');
 
-btnAdd.addEventListener('click', () => {
-  modal.style.display = 'block';
+function openModal(modalEl) {
+  if (!modalEl) return;
+
+  stopDrag();
+  document.body.classList.add('modal-open');
+  modalEl.style.display = 'block';
   // Trigger reflow so the animation replays each time
-  void modal.offsetWidth;
-  modal.classList.add('is-open');
-});
+  void modalEl.offsetWidth;
+  modalEl.classList.add('is-open');
+}
 
-modalClose.addEventListener('click', () => {
-  modal.classList.remove('is-open');
-  modal.classList.add('is-closing');
-  modal.addEventListener('animationend', () => {
-    modal.classList.remove('is-closing');
-    modal.style.display = 'none';
-  }, { once: true }); // "once: true" auto-removes the listener after it fires
+function closeModal(modalEl) {
+  if (!modalEl) return;
+
+  modalEl.classList.remove('is-open');
+  modalEl.classList.add('is-closing');
+  modalEl.addEventListener('animationend', () => {
+    modalEl.classList.remove('is-closing');
+    modalEl.style.display = 'none';
+    document.body.classList.remove('modal-open');
+  }, { once: true });
+}
+
+if (btnAdd && modal) {
+  btnAdd.addEventListener('click', () => openModal(modal));
+}
+
+document.querySelectorAll('.modal-overlay .window__close').forEach((closeButton) => {
+  closeButton.addEventListener('click', () => {
+    const modalEl = closeButton.closest('.modal-overlay');
+    closeModal(modalEl);
+  });
 });

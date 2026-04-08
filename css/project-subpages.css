@@ -1,0 +1,173 @@
+/* This file contains CSS for the project subpages. It is linked in the head of each project page template. */
+/* Changing this file will affect all project subpages. */
+
+/* Project subpages layout and typography */
+@font-face {
+  font-family: "A Goblin Appears!";
+  src: url("../assets/font/a_goblin_appears/A Goblin Appears!.otf");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/font/Open_Sans/static/OpenSans-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/font/Open_Sans/static/OpenSans-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+}
+
+.project-page {
+  --summary-tags-gap: 1.5rem;
+  --tags-content-gap: 3.5rem;
+  --hero-links-gap: 6rem;
+
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 1.1rem;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr);
+  grid-template-areas: "left right";
+  row-gap: 0;
+  column-gap: 1.5rem;
+  align-items: start;
+}
+
+.project-page__left {
+  grid-area: left;
+}
+
+.project-page__right {
+  grid-area: right;
+  position: sticky;
+  top: 0;
+}
+
+.project-page__header {
+  grid-area: header;
+}
+
+.project-page__header p {
+  margin: 0 0 var(--summary-tags-gap) 0;
+}
+
+.project-page__meta {
+  grid-area: meta;
+  margin-bottom: var(--tags-content-gap);
+}
+
+.project-page__content {
+  grid-area: content;
+}
+
+.project-page__content h2:first-child {
+  margin-top: 0;
+}
+
+.project-page__links {
+  margin-top: var(--hero-links-gap);
+}
+
+.project-page__hero {
+  position: static;
+}
+
+.project-page__hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #1a1a1a;
+}
+
+.project-page h1 {
+  margin: 0 0 0.5rem;
+  font-family: "A Goblin Appears!", "Open Sans", sans-serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  line-height: 1.1;
+}
+
+.project-page h2 {
+  margin: 1rem 0 0.35rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.project-page p,
+.project-page li,
+.project-page a {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.3;
+}
+
+.project-page ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.tags {
+  margin-top: 0;
+}
+
+.tag {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  margin: 0.125rem 0.25rem 0.125rem 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Match scrollbar styling used by .window__content in Updates window */
+.project-page::-webkit-scrollbar {
+  width: 15px;
+}
+
+.project-page::-webkit-scrollbar-track {
+  background: #dfdfdf;
+  border-left: 1px solid #ccc;
+}
+
+.project-page::-webkit-scrollbar-thumb {
+  background: #282828;
+  border-radius: 0;
+}
+
+.project-page::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+@media (max-width: 900px) {
+  .project-page {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "left"
+      "right";
+  }
+
+  .project-page__right {
+    position: static;
+  }
+}

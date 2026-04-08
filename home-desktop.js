@@ -304,7 +304,7 @@ function getPublishedProjects(projects) {
 
 function createProjectItem(project) {
   const item = document.createElement('div');
-  item.className = 'project-item';
+  item.className = 'project-item modal-project-entry';
 
   const image = document.createElement('img');
   image.src = project.cover || 'assets/img/placeholder.png';
@@ -328,13 +328,15 @@ function createProjectItem(project) {
     text.appendChild(summaryEl);
   }
 
+  item.appendChild(image);
+
   if (project.page) {
-    const link = document.createElement('a');
-    link.href = project.page;
-    link.appendChild(image);
-    item.appendChild(link);
-  } else {
-    item.appendChild(image);
+    item.addEventListener('click', async () => {
+      if (!modal) return;
+      await renderModalProjects();
+      openModal(modal);
+      showProjectDetailInModal(project.page, project.title || 'Project');
+    });
   }
 
   item.appendChild(text);

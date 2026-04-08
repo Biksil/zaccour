@@ -174,11 +174,9 @@
               <li>
                 <span class="date">[07.2025]</span>
                 <span class="desc"
-                  >started interning as a Research Scientist at the
-                  <a href="https://www.aioilab-oxford.eu/" target="_blank"
-                    >Aioi Lab</a
-                  >
-                  (Oxford, UK), working on AI governance and synthetic data
+                  >joined the <a href="https://www.aioilab-oxford.eu/" target="_blank"
+                    >Aioi Lab</a> 
+                  (Oxford, UK) as a Research Scientist Intern, working on AI governance and synthetic data
                   evaluation
                 </span>
               </li>
@@ -314,32 +312,7 @@
             <button class="window__close">✕</button>
           </div>
           <div class="window__content">
-            <div class="project-item">
-              <img
-                src="assets/img/placeholder.png"
-                alt="placeholder"
-                width=100px
-              />
-              <p>
-                Project 1: Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua.
-              </p>
-            </div>
-
-            <div class="project-item">
-              <img
-                src="assets/img/placeholder.png"
-                alt="placeholder"
-                width="100px"
-              />
-              <p>
-                Project 2: Sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua.
-              </p>
-            </div>
+            <div id="latest-projects-list"></div>
 
             <button class="btn-open">+</button>
           </div>
@@ -396,11 +369,19 @@
         <div class="window__brush"></div>
         <div class="window" data-window="open-project">
           <div class="window__titlebar">
-            <span class="window__title"><h3>Projects</h3></span>
+            <span class="window__title">
+              <button class="window__back" id="modal-project-back" aria-label="Back to project gallery" hidden><-</button>
+              <h3 id="modal-project-title">Projects</h3>
+            </span>
             <button class="window__close" id="modal-close">✕</button>
           </div>
           <div class="window__content">
-            <p>Work in progress.</p>
+            <div id="modal-project-gallery" class="modal-project-gallery">
+              <div id="modal-projects-list"></div>
+            </div>
+            <div id="modal-project-detail" class="modal-project-detail" hidden>
+              <iframe id="modal-project-frame" title="Project details" loading="lazy"></iframe>
+            </div>
           </div>
         </div>
       </div>

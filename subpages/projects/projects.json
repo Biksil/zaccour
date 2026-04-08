@@ -1,0 +1,28 @@
+[{
+"id": "access-denied",
+"title": "Access Denied",
+"slug": "access-denied",
+"summary": "Short card text",
+"cover": "assets/img/projects/access-denied-cover.png",
+"page": "subpages/projects/access-denied.html",
+"highlight": true,
+"highlightOrder": 2,
+"year": 2025,
+"tags": ["HCI", "Data Access"],
+"published": false
+},
+
+{
+"id": "template-project",
+"title": "Template Project",
+"slug": "template-project",
+"summary": "Short card text",
+"cover": "assets/img/placeholder.png",
+"page": "subpages/projects/project-template.html",
+"highlight": true,
+"highlightOrder": 1,
+"year": 2026,
+"tags": ["HCI", "Data Access"],
+"published": true
+}
+]

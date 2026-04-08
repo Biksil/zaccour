@@ -80,6 +80,15 @@ a {
 @font-face {
   font-family: "Open Sans";
   src: url("../assets/font/Open_Sans/static/OpenSans-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/font/Open_Sans/static/OpenSans-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
 }
 
 /* -- Theme toggle button -- */

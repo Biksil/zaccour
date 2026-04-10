@@ -1,9 +1,37 @@
 [
 {
+"id": "synth-participants-opinion",
+"title": "Opinion Piece on Synthetic Respondents",
+"slug": "synth-participants-opinion",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-9.png",
+"page": "subpages/projects/project-synth-participants-opinion.html",
+"type": "research",
+"highlight": false,
+"year": 2026,
+"tags": ["LLMs", "AI in Science", "Synthetic data"],
+"published": false
+},
+
+{
+"id": "synth-participants-opinion",
+"title": "Opinion Piece on Synthetic Respondents",
+"slug": "synth-participants-opinion",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-9.png",
+"page": "subpages/projects/project-synth-participants-opinion.html",
+"type": "research",
+"highlight": false,
+"year": 2026,
+"tags": ["LLMs", "AI in Science", "Synthetic data"],
+"published": false
+},
+
+{
 "id": "synth-eval",
 "title": "Synthetic data evaluation",
 "slug": "synth-eval",
-"summary": "Short card text",
+"summary": "Synthetic data paper (under review)",
 "cover": "assets/img/placeholder-9.png",
 "page": "subpages/projects/project-synth-eval.html",
 "type": "research",
@@ -11,6 +39,34 @@
 "highlightOrder": 2,
 "year": 2025,
 "tags": ["Generative AI", "Data Access", "Privacy-enhancing technologies"],
+"published": true
+},
+
+{
+"id": "ai-risk-taxonomy",
+"title": "AI Risk Taxonomy",
+"slug": "ai-risk-taxonomy",
+"summary": "Aioi AI risk taxonomy project",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-ai-risk-taxonomy.html",
+"type": "applied",
+"highlight": false,
+"year": 2025,
+"tags": ["AI Risk", "AI Governance", "AI Safety"],
+"published": true
+},
+
+{
+"id": "synthetic-evaluation-pipeline",
+"title": "Synthetic Data Evaluation Pipeline",
+"slug": "synthetic-evaluation-pipeline",
+"summary": "Aioi synthetic data evaluation project",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-synth-evaluation-pipeline.html",
+"type": "applied",
+"highlight": false,
+"year": 2025,
+"tags": ["Synthetic data", "AI Evaluation"],
 "published": true
 },
 
@@ -30,32 +86,142 @@
 },
 
 {
-"id": "test-project2",
-"title": "Test Project 2",
-"slug": "test-project2",
+"id": "dsa-feedback",
+"title": "Policy brief: Feedback on the EU Digital Services Act",
+"slug": "dsa-feedback",
 "summary": "Short card text",
 "cover": "assets/img/placeholder-8.png",
-"page": "subpages/projects/project-template.html",
-"type": "applied",
-"highlight": true,
-"highlightOrder": 2,
-"year": 2023,
-"tags": ["HCI", "Data Access", "Privacy-enhancing technologies"],
+"page": "subpages/projects/project-dsa-feedback.html",
+"type": "other",
+"highlight": false,
+"year": 2024,
+"tags": ["Policy", "Platform Regulation", "Data Access"],
 "published": true
 },
 
 {
-"id": "test-project",
-"title": "Test Project",
-"slug": "test-project",
+"id": "agriculture-prediction-competition",
+"title": "Precision Agriculture ML Competition",
+"slug": "agriculture-prediction-competition",
 "summary": "Short card text",
 "cover": "assets/img/placeholder-8.png",
-"page": "subpages/projects/project-template.html",
+"page": "subpages/projects/project-digital-green-competition.html",
 "type": "applied",
-"highlight": true,
-"highlightOrder": 2,
+"highlight": false,
+"year": 2024,
+"tags": ["Machine Learning", "Competition", "Precision Agriculture"],
+"published": true
+},
+
+{
+"id": "french-trot-competition",
+"title": "Sports Forecasting",
+"slug": "french-trot-competition",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-french-trot-competition.html",
+"type": "other",
+"highlight": false,
+"year": 2023,
+"tags": ["Machine Learning", "Competition"],
+"published": true
+},
+
+{
+"id": "clh-patient-clustering",
+"title": "Long COVID Patient Clustering",
+"slug": "clh-patient-clustering",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-clh-patient-clustering.html",
+"type": "research",
+"highlight": false,
+"year": 2023,
+"tags": ["Clustering", "Machine Learning", "Healthcare"],
+"published": true
+},
+
+{
+"id": "fraud-detection-hackathon",
+"title": "Fraud Detection Hackathon",
+"slug": "fraud-detection-hackathon",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-fraud-detection-hackathon.html",
+"type": "other",
+"highlight": false,
+"year": 2023,
+"tags": ["Human-centered design", "Hackathon", "Fraud detection"],
+"published": true
+},
+
+{
+"id": "long-covid-trajectories",
+"title": "Analyzing long COVID Patient Trajectories",
+"slug": "long-covid-trajectories",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-clh-trajectories.html",
+"type": "research",
+"highlight": false,
+"year": 2023,
+"tags": ["Statistical Analysis", "Wearable Data", "Healthcare"],
+"published": true
+},
+
+{
+"id": "tech-csr-topics",
+"title": "Corporate Social Responsibility Discourses in Tech: A Topic Modeling Analysis",
+"slug": "tech-csr-topics",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-tech-csr-topics.html",
+"type": "research",
+"highlight": false,
+"year": 2023,
+"tags": ["NLP", "Topic Modeling", "Thematic Analysis", "Corporate Social Responsibility"],
+"published": true
+},
+
+{
+"id": "digital-resilience",
+"title": "Understanding Digital Resilience",
+"slug": "digital-resilience",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-digital-resilience.html",
+"type": "research",
+"highlight": false,
+"year": 2023,
+"tags": ["Statistical Analysis", "Survey Analysis"],
+"published": true
+},
+
+{
+"id": "visualizing-moma",
+"title": "Visualizing Gender Disparities in MoMA Collections",
+"slug": "visualizing-moma",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-visualizing-moma.html",
+"type": "research",
+"highlight": false,
+"year": 2023,
+"tags": ["Data Visualization", "Data Analysis"],
+"published": true
+},
+
+{
+"id": "responsible-advertising",
+"title": "Visualizing Responsible Advertising",
+"slug": "responsible-advertising",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-responsible-advertising.html",
+"type": "other",
+"highlight": false,
 "year": 2022,
-"tags": ["HCI", "Data Access", "Privacy-enhancing technologies"],
+"tags": ["Data Visualization", "Data Analysis", "Event"],
 "published": true
 },
 
@@ -71,6 +237,6 @@
 "highlightOrder": 1,
 "year": 2026,
 "tags": ["HCI", "Data Access"],
-"published": true
+"published": false
 }
 ]

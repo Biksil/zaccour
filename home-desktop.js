@@ -302,6 +302,20 @@ function getPublishedProjects(projects) {
   return projects.filter((project) => project && project.published === true);
 }
 
+function getProjectFolderIcon(projectType) {
+  const normalizedType = String(projectType || '').toLowerCase();
+
+  if (normalizedType === 'research') {
+    return 'assets/img/project-icons/folder-blue.png';
+  }
+
+  if (normalizedType === 'applied') {
+    return 'assets/img/project-icons/folder-pink.png';
+  }
+
+  return 'assets/img/project-icons/folder-green.png';
+}
+
 let draggingModalEntry = null;
 let modalEntryStartX = 0;
 let modalEntryStartY = 0;
@@ -434,7 +448,7 @@ function createModalProjectItem(project) {
   item.dataset.dragMoved = 'false';
 
   const image = document.createElement('img');
-  image.src = 'assets/img/project-icons/folder-blue.png';
+  image.src = getProjectFolderIcon(project.type);
   image.alt = `${project.title || 'Project'} folder icon`;
   image.width = 150;
 

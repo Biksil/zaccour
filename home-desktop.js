@@ -377,9 +377,9 @@ function createModalProjectItem(project) {
   item.className = 'project-item modal-project-entry';
 
   const image = document.createElement('img');
-  image.src = 'assets/img/placeholder.png';
+  image.src = 'assets/img/project-icons/folder-blue.png';
   image.alt = `${project.title || 'Project'} folder icon`;
-  image.width = 100;
+  image.width = 150;
 
   const text = document.createElement('p');
   text.textContent = project.summary

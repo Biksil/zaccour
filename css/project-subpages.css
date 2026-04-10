@@ -35,9 +35,13 @@ body {
 }
 
 .project-page {
-  --summary-tags-gap: 1.5rem;
-  --tags-content-gap: 3.5rem;
-  --hero-links-gap: 6rem;
+  --summary-tags-gap: 1.5rem; /* Space between the summary and the tags */
+  --tags-content-gap: 3.5rem; /* Space below the tags */
+  --hero-links-gap: 6rem; /* Spacing below the image */
+  --hero-caption-gap: 0.35rem; /* Space between image and caption */
+  --hero-caption-size: 0.82rem; /* Caption font size */
+  --hero-caption-weight: 400; /* Caption font weight */
+  --section-heading-body-gap: 0.2rem; /* Space between h2 and the following content */
 
   height: 100%;
   overflow-y: auto;
@@ -46,15 +50,18 @@ body {
   padding: 1.1rem;
 
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr);
   grid-template-areas: "left right";
   row-gap: 0;
   column-gap: 1.5rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .project-page__left {
   grid-area: left;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .project-page__right {
@@ -85,18 +92,32 @@ body {
 }
 
 .project-page__links {
-  margin-top: var(--hero-links-gap);
+  margin-top: auto;
+  padding-top: var(--hero-links-gap);
 }
 
 .project-page__hero {
   position: static;
 }
 
+.project-page__hero figure {
+  margin: 0;
+}
+
 .project-page__hero img {
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid #1a1a1a;
+  border: 0px solid #1a1a1a;
+}
+
+.project-page__hero figcaption {
+  margin-top: var(--hero-caption-gap);
+  font-family: "Open Sans", sans-serif;
+  font-size: var(--hero-caption-size);
+  font-weight: var(--hero-caption-weight);
+  line-height: 1.25;
+  color: #555;
 }
 
 .project-page h1 {
@@ -111,6 +132,14 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 1.02rem;
   font-weight: 700;
+}
+
+.project-page__content h2 {
+  margin-bottom: var(--section-heading-body-gap);
+}
+
+.project-page__content h2 + p {
+  margin-top: 0;
 }
 
 .project-page p,
@@ -167,7 +196,16 @@ body {
       "right";
   }
 
+  .project-page__left {
+    min-height: auto;
+  }
+
   .project-page__right {
     position: static;
+  }
+
+  .project-page__links {
+    margin-top: 1rem;
+    padding-top: 0;
   }
 }

@@ -92,6 +92,34 @@ body.modal-open .modal-overlay * {
   height: 100%;
 }
 
+.modal-project-gallery #modal-projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.modal-project-gallery .modal-project-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 160px;
+  text-align: center;
+  gap: 0.4rem; /* Space between icon and label */
+}
+
+.modal-project-gallery .modal-project-entry img {
+  width: 120px;
+  height: auto;
+}
+
+.modal-project-gallery .modal-project-entry p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
 .modal-project-detail iframe {
   width: 100%;
   height: 100%;

@@ -1,15 +1,62 @@
-[{
+[
+{
+"id": "synth-eval",
+"title": "Synthetic data evaluation",
+"slug": "synth-eval",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-9.png",
+"page": "subpages/projects/project-synth-eval.html",
+"type": "research-paper",
+"highlight": true,
+"highlightOrder": 2,
+"year": 2025,
+"tags": ["Generative AI", "Data Access", "Privacy-enhancing technologies"],
+"published": true
+},
+
+{
 "id": "access-denied",
 "title": "Access Denied",
 "slug": "access-denied",
 "summary": "Short card text",
-"cover": "assets/img/projects/access-denied-cover.png",
-"page": "subpages/projects/access-denied.html",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-access-denied.html",
+"type": "research-paper",
 "highlight": true,
 "highlightOrder": 2,
 "year": 2025,
-"tags": ["HCI", "Data Access"],
-"published": false
+"tags": ["HCI", "Data Access", "Privacy-enhancing technologies"],
+"published": true
+},
+
+{
+"id": "test-project2",
+"title": "Test Project 2",
+"slug": "test-project2",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-template.html",
+"type": "non-academic-tech-project",
+"highlight": true,
+"highlightOrder": 2,
+"year": 2023,
+"tags": ["HCI", "Data Access", "Privacy-enhancing technologies"],
+"published": true
+},
+
+{
+"id": "test-project",
+"title": "Test Project",
+"slug": "test-project",
+"summary": "Short card text",
+"cover": "assets/img/placeholder-8.png",
+"page": "subpages/projects/project-template.html",
+"type": "non-academic-other-project",
+"highlight": true,
+"highlightOrder": 2,
+"year": 2022,
+"tags": ["HCI", "Data Access", "Privacy-enhancing technologies"],
+"published": true
 },
 
 {
@@ -23,6 +70,6 @@
 "highlightOrder": 1,
 "year": 2026,
 "tags": ["HCI", "Data Access"],
-"published": true
+"published": false
 }
 ]

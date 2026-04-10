@@ -579,6 +579,7 @@ const projectModalTitle = document.getElementById('modal-project-title');
 const projectModalGallery = document.getElementById('modal-project-gallery');
 const projectModalDetail = document.getElementById('modal-project-detail');
 const projectModalFrame = document.getElementById('modal-project-frame');
+const projectModalLegend = document.querySelector('.modal-project-legend');
 
 function showProjectGalleryInModal() {
   if (projectModalDetail) {
@@ -586,6 +587,9 @@ function showProjectGalleryInModal() {
   }
   if (projectModalGallery) {
     projectModalGallery.hidden = false;
+  }
+  if (projectModalLegend) {
+    projectModalLegend.style.display = 'flex';
   }
   if (projectModalBack) {
     projectModalBack.hidden = true;
@@ -601,6 +605,9 @@ function showProjectDetailInModal(page, title) {
   projectModalFrame.src = page;
   projectModalGallery.hidden = true;
   projectModalDetail.hidden = false;
+  if (projectModalLegend) {
+    projectModalLegend.style.display = 'none';
+  }
 
   if (projectModalBack) {
     projectModalBack.hidden = false;

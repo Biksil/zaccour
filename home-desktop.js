@@ -661,6 +661,20 @@ if (btnAdd && modal) {
   });
 }
 
+// Hobby box modal
+const hobbyBoxImage = document.getElementById('hobby-box-image');
+const hobbyModal = document.getElementById('open-hobby-modal');
+
+if (hobbyBoxImage && hobbyModal) {
+  hobbyBoxImage.addEventListener('click', (e) => {
+    if (didDrag) {
+      e.preventDefault();
+      return;
+    }
+    openModal(hobbyModal);
+  });
+}
+
 document.querySelectorAll('.modal-overlay .window__close').forEach((closeButton) => {
   closeButton.addEventListener('click', () => {
     const modalEl = closeButton.closest('.modal-overlay');

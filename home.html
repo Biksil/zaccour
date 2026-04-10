@@ -79,9 +79,11 @@
         onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
         <img
+          id="hobby-box-image"
           src="assets/img/hobby-box.png"
           alt="Cardboard box icon"
           onmousedown="startDrag(event, this.closest('.desktop__element'))"
+          style="cursor: pointer;"
         />
       </div>
 
@@ -405,7 +407,7 @@
     </div>
 
     <!-- ADD HOBBY-BOX sub-page as large window -->
-      <div class="window-wrapper modal-overlay" id="open-hobby-modal">
+      <div class="window-wrapper modal-overlay modal-overlay--left" id="open-hobby-modal">
         <div class="window__brush"></div>
         <div class="window" data-window="open-hobby">
           <div class="window__titlebar">
@@ -413,7 +415,7 @@
             <button class="window__close" id="modal-close">✕</button>
           </div>
           <div class="window__content">
-            <p>Work in progress.</p>
+            <p>Work in progress. Come back later! (Probably much later)</p>
           </div>
         </div>
       </div>

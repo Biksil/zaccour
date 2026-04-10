@@ -50,6 +50,10 @@
   pointer-events: auto;
 }
 
+.modal-overlay--left {
+  transform-origin: bottom left;
+}
+
 body.modal-open .desktop > :not(.modal-overlay) {
   pointer-events: none;
 }

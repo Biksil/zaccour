@@ -91,6 +91,14 @@ a {
   font-weight: 700;
 }
 
+@font-face {
+  font-family: "Welcome Darling";
+  src: url("../assets/font/welcome_darling/Welcome Darling.otf");
+  font-style: normal;
+  font-weight: 200;
+  font-size: 20px;
+}
+
 /* -- Theme toggle button -- */
 #theme-toggle {
   position: relative;

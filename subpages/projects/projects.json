@@ -64,12 +64,13 @@
 "title": "Template Project",
 "slug": "template-project",
 "summary": "Short card text",
-"cover": "assets/img/placeholder.png",
+"cover": "assets/img/placeholder-8.png",
 "page": "subpages/projects/project-template.html",
+"type": "none",
 "highlight": true,
 "highlightOrder": 1,
 "year": 2026,
 "tags": ["HCI", "Data Access"],
-"published": false
+"published": true
 }
 ]

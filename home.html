@@ -376,11 +376,28 @@
             <button class="window__close" id="modal-close">✕</button>
           </div>
           <div class="window__content">
+            <!-- Projects folder gallery -->
             <div id="modal-project-gallery" class="modal-project-gallery">
               <div id="modal-projects-list"></div>
             </div>
             <div id="modal-project-detail" class="modal-project-detail" hidden>
               <iframe id="modal-project-frame" title="Project details" loading="lazy"></iframe>
+            </div>
+
+            <!-- Legend for the folder icons -->
+            <div class="modal-project-legend" aria-label="Project legend">
+              <div class="modal-project-legend__item">
+                <img src="assets/img/project-icons/legend-blue.png" alt="Blue legend icon" />
+                <span>Research</span>
+              </div>
+              <div class="modal-project-legend__item">
+                <img src="assets/img/project-icons/legend-pink.png" alt="Pink legend icon" />
+                <span>Applied</span>
+              </div>
+              <div class="modal-project-legend__item">
+                <img src="assets/img/project-icons/legend-green.png" alt="Green legend icon" />
+                <span>Other</span> <!-- Could be "Events" for e.g. organized workshops and ACT exhibition -->
+              </div>
             </div>
           </div>
         </div>

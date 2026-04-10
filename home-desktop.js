@@ -302,6 +302,60 @@ function getPublishedProjects(projects) {
   return projects.filter((project) => project && project.published === true);
 }
 
+let draggingModalEntry = null;
+let modalEntryStartX = 0;
+let modalEntryStartY = 0;
+let modalEntryBaseX = 0;
+let modalEntryBaseY = 0;
+const modalEntryDragThreshold = 4;
+
+function startModalProjectDrag(e, entry) {
+  if (!entry || isMobileLayout()) return;
+  if (typeof e.button === 'number' && e.button !== 0) return;
+
+  draggingModalEntry = entry;
+  modalEntryStartX = e.clientX;
+  modalEntryStartY = e.clientY;
+  modalEntryBaseX = Number(entry.dataset.offsetX || 0);
+  modalEntryBaseY = Number(entry.dataset.offsetY || 0);
+  entry.dataset.dragMoved = 'false';
+
+  entry.style.zIndex = '20';
+  entry.style.cursor = 'grabbing';
+}
+
+function moveModalProjectDrag(e) {
+  if (!draggingModalEntry) return;
+
+  // If mouseup was missed (e.g. outside window), stop dragging immediately.
+  if (typeof e.buttons === 'number' && e.buttons === 0) {
+    stopModalProjectDrag();
+    return;
+  }
+
+  const dx = e.clientX - modalEntryStartX;
+  const dy = e.clientY - modalEntryStartY;
+  const nextX = modalEntryBaseX + dx;
+  const nextY = modalEntryBaseY + dy;
+
+  draggingModalEntry.dataset.offsetX = String(nextX);
+  draggingModalEntry.dataset.offsetY = String(nextY);
+  draggingModalEntry.style.left = `${nextX}px`;
+  draggingModalEntry.style.top = `${nextY}px`;
+
+  if (Math.hypot(dx, dy) > modalEntryDragThreshold) {
+    draggingModalEntry.dataset.dragMoved = 'true';
+  }
+}
+
+function stopModalProjectDrag() {
+  if (!draggingModalEntry) return;
+
+  draggingModalEntry.style.zIndex = '';
+  draggingModalEntry.style.cursor = 'pointer';
+  draggingModalEntry = null;
+}
+
 function createProjectItem(project) {
   const item = document.createElement('div');
   item.className = 'project-item modal-project-entry';
@@ -375,6 +429,9 @@ async function renderLatestProjects() {
 function createModalProjectItem(project) {
   const item = document.createElement('div');
   item.className = 'project-item modal-project-entry';
+  item.dataset.offsetX = '0';
+  item.dataset.offsetY = '0';
+  item.dataset.dragMoved = 'false';
 
   const image = document.createElement('img');
   image.src = 'assets/img/project-icons/folder-blue.png';
@@ -389,8 +446,24 @@ function createModalProjectItem(project) {
   item.appendChild(image);
   item.appendChild(text);
 
+  item.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    startModalProjectDrag(e, item);
+  });
+
+  item.addEventListener('touchstart', (e) => {
+    if (!e.touches || e.touches.length === 0) return;
+    startModalProjectDrag(e.touches[0], item);
+    e.preventDefault();
+  }, { passive: false });
+
   if (project.page) {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
+      if (item.dataset.dragMoved === 'true') {
+        e.preventDefault();
+        item.dataset.dragMoved = 'false';
+        return;
+      }
       showProjectDetailInModal(project.page, project.title || 'Project');
     });
   }
@@ -573,3 +646,16 @@ document.querySelectorAll('.modal-overlay .window__close').forEach((closeButton)
     closeModal(modalEl);
   });
 });
+
+document.addEventListener('mousemove', moveModalProjectDrag);
+document.addEventListener('mouseup', stopModalProjectDrag);
+window.addEventListener('blur', stopModalProjectDrag);
+
+document.addEventListener('touchmove', (e) => {
+  if (!draggingModalEntry || !e.touches || e.touches.length === 0) return;
+  moveModalProjectDrag(e.touches[0]);
+  e.preventDefault();
+}, { passive: false });
+
+document.addEventListener('touchend', stopModalProjectDrag);
+document.addEventListener('touchcancel', stopModalProjectDrag);

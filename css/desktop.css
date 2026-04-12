@@ -70,12 +70,12 @@
   }
 
   .desktop__element--character img {
-    width: clamp(24rem, 30vw, 42rem);
+    width: clamp(15rem, 30vw, 25rem);
     height: auto;
   }
 
   .desktop img[src$="loading-bar.gif"] {
-    width: clamp(22rem, 26vw, 38rem);
+    width: clamp(22rem, 26vw, 22rem);
     height: auto;
   }
 
@@ -84,8 +84,12 @@
     height: auto;
   }
 
+  .desktop__element--cv {
+    z-index: 13;
+  }
+
   .desktop img[src$="hobby-box.png"] {
-    width: clamp(14rem, 16vw, 18rem);
+    width: clamp(8rem, 16vw, 12rem);
     height: auto;
   }
 
@@ -95,7 +99,7 @@
   }
 
   .desktop img[src$="connect.png"] {
-    width: clamp(10rem, 11vw, 13rem);
+    width: clamp(8rem, 10vw, 10rem);
     height: auto;
   }
 
@@ -106,7 +110,7 @@
 
   .desktop img[src$="linkedin-icon.png"],
   .desktop img[src$="github-icon.png"] {
-    width: clamp(11rem, 12vw, 15rem);
+    width: clamp(8rem, 12vw, 15rem);
     height: auto;
   }
 
@@ -248,6 +252,124 @@
     left: auto;
     right: var(--social-right-inset);
     top: 92%;
+  }
+}
+
+/* Large desktop: 1200px - 1919px */
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .desktop {
+    width: min(100%, 1400px);
+  }
+
+  body {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* Ultra-wide/large monitors: 1920px+ */
+@media (min-width: 1920px) {
+  .desktop {
+    width: 1400px;
+    margin: 0 auto;
+  }
+
+  body {
+    font-size: 17px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  h3 {
+    font-size: 13px;
+  }
+
+  #theme-toggle {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  #theme-toggle img {
+    width: 11rem;
+    height: auto;
+  }
+
+  .window[data-window="about"] {
+    width: 34rem;
+  }
+
+  .window[data-window="updates"] {
+    width: 28rem;
+  }
+
+  .window[data-window="projects"] {
+    width: 34rem;
+  }
+
+  .window[data-window="about"] .window__content {
+    max-height: 480px;
+  }
+
+  .window[data-window="updates"] .window__content {
+    max-height: 220px;
+  }
+
+  .window[data-window="projects"] .window__content {
+    max-height: 320px;
+  }
+
+  .updates-list {
+    font-size: 15px;
+  }
+
+  .tag {
+    font-size: 12px;
+  }
+
+  .desktop__element--character img {
+    width: 42rem;
+    height: auto;
+  }
+
+  .desktop img[src$="loading-bar.gif"] {
+    width: 38rem;
+    height: auto;
+  }
+
+  .desktop img[src$="cv-icon.png"] {
+    width: 11rem;
+    height: auto;
+  }
+
+  .desktop img[src$="hobby-box.png"] {
+    width: 18rem;
+    height: auto;
+  }
+
+  #postit-image {
+    width: 13rem;
+    height: auto;
+  }
+
+  .desktop img[src$="connect.png"] {
+    width: 13rem;
+    height: auto;
+  }
+
+  .desktop img[src$="email.png"] {
+    width: 30rem;
+    height: auto;
+  }
+
+  .desktop img[src$="linkedin-icon.png"],
+  .desktop img[src$="github-icon.png"] {
+    width: 15rem;
+    height: auto;
+  }
+
+  .project-item img {
+    width: 7rem;
+    height: auto;
   }
 }
 

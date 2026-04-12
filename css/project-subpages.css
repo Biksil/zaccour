@@ -66,6 +66,9 @@ body {
 
 .project-page__right {
   grid-area: right;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   position: sticky;
   top: 0;
 }
@@ -106,8 +109,10 @@ body {
 
 .project-page__hero img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  max-height: calc(100vh - 8rem);
   border: 0px solid #1a1a1a;
   pointer-events: none;
 }
@@ -182,6 +187,35 @@ body {
 .project-link-item span {
   font-size: 0.84rem;
   line-height: 1.2;
+}
+
+.project-page__next-nav {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-page__next-nav--right {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.project-next-link {
+  display: inline-block;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.18rem 0;
+  border-bottom: 1px solid transparent;
+}
+
+.project-next-link:hover,
+.project-next-link:focus-visible {
+  border-bottom-color: #1a1a1a;
 }
 
 .tags {

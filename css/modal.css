@@ -173,7 +173,7 @@ body.modal-open .modal-overlay * {
 .modal-overlay .window__brush {
   top: -16px;
   left: -16px;
-  right: -20px;
+  right: -16px;
   bottom: -20px;
   border: 2px solid #1a1a1a;
   border-image-source: url("../assets/img/hand_outline_thick.png");

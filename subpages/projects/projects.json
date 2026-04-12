@@ -14,20 +14,6 @@
 },
 
 {
-"id": "synth-participants-opinion",
-"title": "Opinion Piece on Synthetic Respondents",
-"slug": "synth-participants-opinion",
-"summary": "Short card text",
-"cover": "assets/img/placeholder-9.png",
-"page": "subpages/projects/project-synth-participants-opinion.html",
-"type": "research",
-"highlight": false,
-"year": 2026,
-"tags": ["LLMs", "AI in Science", "Synthetic data"],
-"published": false
-},
-
-{
 "id": "synth-eval",
 "title": "Synthetic data evaluation",
 "slug": "synth-eval",
@@ -105,7 +91,7 @@
 "slug": "agriculture-prediction-competition",
 "summary": "Short card text",
 "cover": "assets/img/placeholder-8.png",
-"page": "subpages/projects/project-digital-green-competition.html",
+"page": "subpages/projects/project-agriculture-prediction-competition.html",
 "type": "applied",
 "highlight": false,
 "year": 2024,

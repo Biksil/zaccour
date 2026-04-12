@@ -259,7 +259,8 @@ document.addEventListener('touchcancel', stopDrag);
 /////////////////////////////
 // Randomize post-it image //
 function randomizePostitImage() {
-  const postitImages = ['compyu-cat.png', 'desk-cat.png'];
+  const postitImages = ['compyu-cat.png', 'desk-cat.png', 'audit-cat.png', 'data-cat.png', 'desk-cat2.png', 'div-cat.png', 
+    'graph-cat.png', 'no-tech-cat.png', 'scienti-cat.png'];
   const randomImage = postitImages[Math.floor(Math.random() * postitImages.length)];
   const postitImg = document.getElementById('postit-image');
   if (postitImg) {

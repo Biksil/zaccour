@@ -166,7 +166,7 @@
   }
 
   .desktop__element--character img {
-    width: clamp(350px, 32vw, 450px);
+    width: clamp(300px, 32vw, 350px);
   }
 
   .desktop img[src$="loading-bar.gif"] {
@@ -178,7 +178,7 @@
   }
 
   .desktop img[src$="hobby-box.png"] {
-    width: clamp(100px, 15vw, 180px);
+    width: clamp(80px, 50vw, 150px);
   }
 
   .desktop img[src$="email.png"] {
@@ -218,8 +218,8 @@
   }
 
   .desktop__element--hobby {
-    left: 47%;
-    top: 82%;
+    left: 40%;
+    top: 80%;
   }
 
   .desktop__element--connect {

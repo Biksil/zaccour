@@ -99,12 +99,17 @@
   }
 
   .desktop img[src$="connect.png"] {
-    width: clamp(8rem, 10vw, 10rem);
+    width: clamp(6rem, 10vw, 8rem);
     height: auto;
   }
 
   .desktop img[src$="email.png"] {
     width: clamp(20rem, 24vw, 30rem);
+    height: auto;
+  }
+
+  .desktop img[src$="publications-icon.png"] {
+    width: clamp(18rem, 12vw, 18rem);
     height: auto;
   }
 
@@ -189,6 +194,7 @@
     width: clamp(270px, 20vw, 260px);
   }
 
+  .desktop img[src$="publications-icon.png"],
   .desktop img[src$="linkedin-icon.png"],
   .desktop img[src$="github-icon.png"] {
     width: var(--social-icon-width);
@@ -216,14 +222,16 @@
   }
 
   .desktop__element--cv {
-    left: 6%;
-    top: 33%;
+    left: 3%;
+    top: auto;
+    bottom: 4%;
     z-index: 13;
   }
 
   .desktop__element--hobby {
-    left: 40%;
-    top: 80%;
+    left: 22%;
+    top: auto;
+    bottom: 4%;
   }
 
   .desktop__element--connect {
@@ -240,6 +248,12 @@
     right: auto;
     top: 87%;
     transform: translateX(-50%);
+  }
+
+  .desktop__element--publications {
+    left: 3%;
+    right: auto;
+    top: 58%;
   }
 
   .desktop__element--linkedin {

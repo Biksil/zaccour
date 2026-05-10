@@ -61,7 +61,7 @@
       <!-- CV icon -->
       <div
         class="desktop__element desktop__element--cv"
-        style="--x: 6.94%; --y: 47.22%"
+        style="--x: 1%; --y: 77%"
         onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
         <a href="assets/docs/JulietteZaccour_CV.pdf" target="_blank"
@@ -75,7 +75,7 @@
       <!-- Hobby box -->
       <div
         class="desktop__element desktop__element--hobby"
-        style="--x: 5%; --y: 75%"
+        style="--x: 15%; --y: 77%"
         onmousedown="bringToFront(this.closest('.desktop__element'))"
       >
         <img
@@ -348,6 +348,18 @@
           onmousedown="startDrag(event, this.closest('.desktop__element'))"
         />
       </div>
+      <div
+        class="desktop__element desktop__element--publications"
+        style="--x: 0%; --y: 48%"
+        onmousedown="bringToFront(this.closest('.desktop__element'))"
+      ><a href="https://scholar.google.com/citations?user=oUbXU0EAAAAJ&hl=fr" target="_blank"
+          >
+        <img 
+          src="assets/img/socials/publications-icon.png" 
+          alt="" 
+          onmousedown="startDrag(event, this.closest('.desktop__element'))"
+        /></a>
+      </div>
       <div 
         class="desktop__element desktop__element--linkedin" style="--x: 68%; --y: 92%" 
         onmousedown="bringToFront(this.closest('.desktop__element'))">
@@ -377,7 +389,7 @@
           <div class="window__titlebar">
             <span class="window__title">
               <button class="window__back" id="modal-project-back" aria-label="Back to project gallery" hidden><</button>
-              <h3 id="modal-project-title">Projects</h3>
+              <h3 id="modal-project-title">Selected Projects</h3>
             </span>
             <button class="window__close" id="modal-close">✕</button>
           </div>

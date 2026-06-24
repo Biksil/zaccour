@@ -596,7 +596,7 @@ function showProjectGalleryInModal() {
     projectModalBack.hidden = true;
   }
   if (projectModalTitle) {
-    projectModalTitle.textContent = 'Projects';
+    projectModalTitle.textContent = 'Selected projects';
   }
 }
 

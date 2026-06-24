@@ -1,7 +1,7 @@
 [
 {
 "id": "synth-participants-opinion",
-"title": "Opinion Piece on Synthetic Respondents",
+"title": "Commentary article on LLM simulations",
 "slug": "synth-participants-opinion",
 "summary": "Short card text",
 "cover": "assets/img/placeholder-9.png",
@@ -17,11 +17,11 @@
 "id": "stitch-n-bitch",
 "title": "Stitch'n'Bitch Workshop",
 "slug": "stitch-n-bitch",
-"summary": "Short card text",
+"summary": "A crafty workshop at FAccT'26",
 "cover": "assets/img/placeholder-9.png",
 "page": "subpages/projects/project-stitch-n-bitch.html",
 "type": "misc",
-"highlight": false,
+"highlight": true,
 "year": 2026,
 "tags": ["event", "craft"],
 "published": true
@@ -35,7 +35,7 @@
 "cover": "assets/img/placeholder-9.png",
 "page": "subpages/projects/project-synth-eval.html",
 "type": "research",
-"highlight": true,
+"highlight": false,
 "highlightOrder": 2,
 "year": 2025,
 "tags": ["Generative AI", "Data Access", "Privacy-enhancing technologies"],
@@ -67,14 +67,14 @@
 "highlight": false,
 "year": 2025,
 "tags": ["Synthetic data", "AI Evaluation"],
-"published": true
+"published": false
 },
 
 {
 "id": "access-denied",
 "title": "Access Denied",
 "slug": "access-denied",
-"summary": "Short card text",
+"summary": "CHI'25 article on data access challenges in algorithm audits",
 "cover": "assets/img/placeholder-8.png",
 "page": "subpages/projects/project-access-denied.html",
 "type": "research",
@@ -96,7 +96,7 @@
 "highlight": false,
 "year": 2024,
 "tags": ["Policy", "Platform Regulation", "Data Access"],
-"published": true
+"published": false
 },
 
 {
@@ -138,7 +138,7 @@
 "highlight": false,
 "year": 2023,
 "tags": ["Clustering", "Machine Learning", "Healthcare"],
-"published": true
+"published": false
 },
 
 {

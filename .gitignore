@@ -1,7 +1,7 @@
 .env/
 *.ttf
 *.otf
-*.gif
+character-animated.gif
 
 # Exceptions -- png files ot include
 !assets/img/hand_outline_thick.png 
